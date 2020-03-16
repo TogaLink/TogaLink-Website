@@ -122,6 +122,25 @@ HEADER
   position: relative;
 }
 
+.social-link {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  border-radius: 50%;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
+
+.social-link:hover, .social-link:focus {
+  background: #ddd;
+  text-decoration: none;
+  color: #555;
+}
+
 .bg-color {
   background-color: rgba(0, 0, 0, 0.5);
   min-height: 650px;
@@ -315,6 +334,10 @@ features
 }
 
 #service {
+  background-color: #F3F4F8;
+}
+
+#team {
   background-color: #F3F4F8;
 }
 
@@ -599,6 +622,9 @@ Blog
   position: relative;
   margin-bottom: 20px;
   overflow: hidden;
+  height:350px;
+  width:350px;
+  background-size: cover;
 }
 
 .blog-img img:hover {
