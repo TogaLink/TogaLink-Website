@@ -118,7 +118,7 @@ HEADER
 .header {
   background: url('../img/map5.png') no-repeat fixed;
   background-size: cover;
-  min-height: 650px;
+  min-height: 735px;
   position: relative;
 }
 
@@ -143,7 +143,7 @@ HEADER
 
 .bg-color {
   background-color: rgba(0, 0, 0, 0.5);
-  min-height: 650px;
+  min-height: 735px;
 }
 
 #main-header {}
