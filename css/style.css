@@ -19,6 +19,10 @@ ol, ul {
   list-style: none;
 }
 
+#input {
+  height:600px;
+}
+
 blockquote, q {
   quotes: none;
 }
@@ -40,6 +44,15 @@ h1, h2, h3, h4, h5, h6 {
 
 .section-padding {
   padding: 60px 0px;
+}
+
+#map {
+  height: 800px;
+}
+
+#input {
+  height:710px;
+  background-color: #F3F4F8;
 }
 
 #loader {
@@ -336,10 +349,10 @@ features
 #service {
   background-color: #F3F4F8;
 }
-
+/* 
 #team {
   background-color: #F3F4F8;
-}
+} */
 
 ul.service-list li i {
   color: #002F2F;

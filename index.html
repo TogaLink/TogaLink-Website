@@ -14,6 +14,11 @@
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/animate.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+
+    <!-- Load the jQuery library, which we'll use to manipulate HTML elements with Javascript. -->
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
   <!-- =======================================================
     Theme Name: COVID-19 Saratoga
     Theme URL: https://bootstrapmade.com/baker-free-onepage-bootstrap-theme/
@@ -44,7 +49,8 @@
                 <ul class="nav navbar-nav navbar-right">
                   <li class="active"><a href="#main-header">Home</a></li>
                   <li class=""><a href="#service">Services</a></li>
-                  <li class=""><a href="#portfolio">Portfolio</a></li>
+                  <li class=""><a href="#map">Map</a></li>
+                  <!-- <li class=""><a href="#portfolio">Portfolio</a></li> -->
                   <li class=""><a href="#team">Team</a></li>
                   <li class=""><a href="#contact">Contact Us</a></li>
                 </ul>
@@ -163,7 +169,92 @@
     <!---->
     <!---->
     <!---->
-    <section id="portfolio" class="section-padding wow fadeInUp delay-05s">
+
+    <section id="map" class="section-padding wow fadeInUp delay-05s">
+      <script>
+        function initMap() {
+          var mapOptions = {
+                  zoom: 8,
+                  center: new google.maps.LatLng(37.5, -122),
+                  mapTypeId: 'roadmap'
+            };
+            var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+      
+            var goldenGatePosition = {lat: 37.8199,lng: -122.4783};
+            var marker = new google.maps.Marker({
+            position: goldenGatePosition,
+            map: map,
+            title: 'Golden Gate Bridge'
+          });
+        }
+        </script>
+        <div id="map"></div>
+        <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCADwgj60fTA1h9xzh_lKlelsxH5OFMFw&callback=initMap" type="text/javascript">
+        </script>
+        
+    </section>
+
+    <section id="input" class="section-padding wow fadeInUp delay-05s">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h2 class="service-title pad-bt15">Add a Marker</h2>
+            <p class="sub-title pad-bt15">If you are in need of assistance, fill out the details below, and a marker will be<br>placed on the map for others to view and respond to.</p>
+            <hr class="bottom-line">
+          </div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <div id="sendmessage">Your message has been sent. Thank you!</div>
+        <div id="errormessage"></div>
+        <form id="markerForm" method="post" role="form" class="contactForm">
+          <div class="col-md-3"></div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <!-- <label for="name"></label> -->
+              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"  /> 
+              <!-- data-rule="minlen:4" data-msg="Please enter at least 4 chars" -->
+              <div class="validation"></div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <!-- <label for="email"></label> -->
+              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" />
+              <div class="validation"></div>
+            </div>
+          </div>
+          <!-- <div class="col-md-6"></div> -->
+          <div class="col-md-6 col-md-offset-3">
+            <div class="form-group">
+              <!-- <label for="address"></label> -->
+              <input type="text" class="form-control" name="address" id="address" placeholder="Address"  />
+              <div class="validation"></div>
+            </div>
+          </div>
+          <div class="col-md-6 col-md-offset-3">
+            <div class="form-group">
+              <!-- <label for="subject"></label> -->
+              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" />
+              <div class="validation"></div>
+            </div>
+          </div>
+          <div class="col-md-6 col-md-offset-3">
+            <div class="form-group">
+              <!-- <label for="message"></label> -->
+              <textarea class="form-control" id="message" name="message" rows="5" placeholder="Message"></textarea>
+              <div class="validation"></div>
+            </div>
+            <center><button id="formbutton" type="submit" class="btn btn-primary btn-submit">SUBMIT</button></center>
+          </div>
+        </form>
+
+      </div>
+    </section>
+
+
+    <!-- <section id="portfolio" class="section-padding wow fadeInUp delay-05s">
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center">
@@ -227,7 +318,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!---->
     <!---->
     <!-- <section id="testimonial" class="wow fadeInUp delay-05s">
@@ -355,14 +446,14 @@
             <p class="sub-title pad-bt15">Contact us for any additional information about the<br>current state of COVID-19 in Saratoga.</p>
             <hr class="bottom-line white-bg">
           </div>
-          <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
             <div class="loction-info white">
-              <p><i class="fa fa-map-marker fa-fw pull-left fa-2x"></i>20300 Herriman Avenue<br>Saratoga, CA 95070</p>
-              <p><i class="fa fa-envelope-o fa-fw pull-left fa-2x" ></i><a href="mailto:rvignav@gmail.com">rvignav@gmail.com</a></p>
-              <p><i class="fa fa-phone fa-fw pull-left fa-2x"></i>+1 (510) 737.1236</p>
+              <center><p><i class="fa fa-map-marker fa-fw fa-2x"></i>        20300 Herriman Avenue<br>Saratoga, CA 95070</p></center>
+              <center><p><i class="fa fa-envelope-o fa-fw fa-2x" ></i><a href="mailto:rvignav@gmail.com">        rvignav@gmail.com</a></p></center>
+              <center><p><i class="fa fa-phone fa-fw fa-2x"></i>        +1 (510) 737.1236</p></center>
             </div>
           </div>
-          <div class="col-md-6 col-sm-6 col-xs-12">
+          <!-- <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="contact-form">
               <div id="sendmessage">Your message has been sent. Thank you!</div>
               <div id="errormessage"></div>
@@ -392,7 +483,7 @@
                   </div>
                   <button type="submit" class="btn btn-primary btn-submit">SEND NOW</button>
                 </div>
-              </form>
+              </form> -->
 
             </div>
           </div>
