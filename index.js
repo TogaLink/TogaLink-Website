@@ -1,13 +1,16 @@
+// import firebase from 'firebase/app';
+// import 'firebase/database';
+
 var config = {
-    apiKey: "AIzaSyClTM0ddPhZgPoVtifd8TZ0c-LrC0iZshs",
-    authDomain: "covid19saratoga.firebaseapp.com",
-    databaseURL: "https://covid19saratoga.firebaseio.com",
-    projectId: "covid19saratoga",
-    storageBucket: "covid19saratoga.appspot.com",
-    messagingSenderId: "1092626000161",
-    appId: "1:1092626000161:web:86ad46738af11ef21cb660",
-    measurementId: "G-ZFG19C7YDN"
-  };
+  apiKey: "AIzaSyClTM0ddPhZgPoVtifd8TZ0c-LrC0iZshs",
+  authDomain: "covid19saratoga.firebaseapp.com",
+  databaseURL: "https://covid19saratoga.firebaseio.com",
+  projectId: "covid19saratoga",
+  storageBucket: "covid19saratoga.appspot.com",
+  messagingSenderId: "1092626000161",
+  appId: "1:1092626000161:web:86ad46738af11ef21cb660",
+  measurementId: "G-ZFG19C7YDN"
+};
   
   // Initialize your Firebase app
   firebase.initializeApp(config);
@@ -32,7 +35,12 @@ var config = {
       "address": address,
       "subject": subject,
       "message": message
-    });
+    }).then(function(ref) {
+      console.log(ref.parent + "/" + ref.key);
+    })
+    .catch(function(error) {
+      console.log(error);
+    })
   };
   
   // When the window is fully loaded, call this function.
@@ -40,13 +48,17 @@ var config = {
   // in this function, we can't do that until the HTML element in question has
   // been loaded. Otherwise, we're attaching our listener to nothing, and no code
   // will run when the submit button is clicked.
-  $(window).load(function () {
+  // $(window).load(function () {
   
     // Find the HTML element with the id recommendationForm, and when the submit
     // event is triggered on that element, call submitRecommendation.
-    $("#markerForm").submit(submit);
-  
+  $("#formbutton").click(function() {
+    console.log('IN SUBMIT');
+    submit();
+    location.reload();
   });
+  
+  // });
   
   
   // jQuery(document).ready(function($) {
