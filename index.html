@@ -15,10 +15,16 @@
   <link rel="stylesheet" type="text/css" href="css/animate.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
 
-  <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
 
-    <!-- Load the jQuery library, which we'll use to manipulate HTML elements with Javascript. -->
-    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-database.js"></script>
+
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+
+    
   <!-- =======================================================
     Theme Name: COVID-19 Saratoga
     Theme URL: https://bootstrapmade.com/baker-free-onepage-bootstrap-theme/
@@ -28,7 +34,7 @@
 </head>
 
 <body>
-
+  
   <div class="loader"></div>
   <div id="myDiv">
     <!--HEADER-->
@@ -155,20 +161,9 @@
             <center><a href="">Inventory Info</a></center>
             </div>
           </div>
-          <!-- <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="service-item">
-              <h3><span>D</span>igital Marketing</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-              <a href="">Learn more...</a>
-            </div>
-          </div> -->
         </div>
       </div>
     </section>
-    <!---->
-    <!---->
-    <!---->
-    <!---->
 
     <section id="map" class="section-padding wow fadeInUp delay-05s">
       <script>
@@ -194,7 +189,7 @@
         </script>
         
     </section>
-
+    
     <section id="input" class="section-padding wow fadeInUp delay-05s">
       <div class="container">
         <div class="row">
@@ -212,156 +207,40 @@
           <div class="col-md-3"></div>
           <div class="col-md-3">
             <div class="form-group">
-              <!-- <label for="name"></label> -->
               <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"  /> 
-              <!-- data-rule="minlen:4" data-msg="Please enter at least 4 chars" -->
               <div class="validation"></div>
             </div>
           </div>
           <div class="col-md-3">
             <div class="form-group">
-              <!-- <label for="email"></label> -->
               <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" />
               <div class="validation"></div>
             </div>
           </div>
-          <!-- <div class="col-md-6"></div> -->
           <div class="col-md-6 col-md-offset-3">
             <div class="form-group">
-              <!-- <label for="address"></label> -->
               <input type="text" class="form-control" name="address" id="address" placeholder="Address"  />
               <div class="validation"></div>
             </div>
           </div>
           <div class="col-md-6 col-md-offset-3">
             <div class="form-group">
-              <!-- <label for="subject"></label> -->
               <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" />
               <div class="validation"></div>
             </div>
           </div>
           <div class="col-md-6 col-md-offset-3">
             <div class="form-group">
-              <!-- <label for="message"></label> -->
               <textarea class="form-control" id="message" name="message" rows="5" placeholder="Message"></textarea>
               <div class="validation"></div>
             </div>
-            <center><button id="formbutton" type="submit" class="btn btn-primary btn-submit">SUBMIT</button></center>
+            <center><button id="formbutton" type="button" class="btn btn-primary btn-submit">SUBMIT</button></center>
           </div>
         </form>
 
       </div>
     </section>
 
-
-    <!-- <section id="portfolio" class="section-padding wow fadeInUp delay-05s">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <h2 class="service-title pad-bt15">Our Recent Works</h2>
-            <p class="sub-title pad-bt15">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>tempor incididunt ut labore et dolore magna aliqua.</p>
-            <hr class="bottom-line">
-          </div>
-          <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
-            <figure>
-              <img src="img/port01.jpg" class="img-responsive">
-              <figcaption>
-                <h2>Project For Everyone</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nost.</p>
-              </figcaption>
-            </figure>
-          </div>
-          <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
-            <figure>
-              <img src="img/port02.jpg" class="img-responsive">
-              <figcaption>
-                <h2>Project For Everyone</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nost.</p>
-              </figcaption>
-            </figure>
-          </div>
-          <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
-            <figure>
-              <img src="img/port03.jpg" class="img-responsive">
-              <figcaption>
-                <h2>Project For Everyone</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nost.</p>
-              </figcaption>
-            </figure>
-          </div>
-          <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
-            <figure>
-              <img src="img/port04.jpg" class="img-responsive">
-              <figcaption>
-                <h2>Project For Everyone</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nost.</p>
-              </figcaption>
-            </figure>
-          </div>
-          <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
-            <figure>
-              <img src="img/port05.jpg" class="img-responsive">
-              <figcaption>
-                <h2>Project For Everyone</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nost.</p>
-              </figcaption>
-            </figure>
-          </div>
-          <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
-            <figure>
-              <img src="img/port06.jpg" class="img-responsive">
-              <figcaption>
-                <h2>Project For Everyone</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nost.</p>
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-      </div>
-    </section> -->
-    <!---->
-    <!---->
-    <!-- <section id="testimonial" class="wow fadeInUp delay-05s">
-      <div class="bg-testicolor">
-        <div class="container section-padding">
-          <div class="row">
-            <div class="testimonial-item">
-              <ul class="bxslider">
-                <li>
-                  <blockquote>
-                    <img src="img/thumb.png" class="img-responsive">
-                    <p>Come a day there won't be room for naughty men like us to slip about at all. This job goes south, there well may not be another. </p>
-                  </blockquote>
-                  <small>Shaun Paul, Client</small>
-                </li>
-                <li>
-                  <blockquote>
-                    <img src="img/thumb.png" class="img-responsive">
-                    <p>So here is us, on the raggedy edge. Don't push me, and I won't push you. </p>
-                  </blockquote>
-                  <small>Marry Smith, Client</small>
-                </li>
-                <li>
-                  <blockquote>
-                    <img src="img/thumb.png" class="img-responsive">
-                    <p>Come a day there won't be room for naughty men like us to slip about at all. This job goes south, there well may not be another.</p>
-                  </blockquote>
-                  <small>Vivek Singh, Client</small>
-                </li>
-                <li>
-                  <blockquote>
-                    <img src="img/thumb.png" class="img-responsive">
-                    <p>So here is us, on the raggedy edge. Don't push me, and I won't push you.</p>
-                  </blockquote>
-                  <small>John Doe, Client</small>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
-    <!---->
     <section id="team" class="section-padding wow fadeInUp delay-05s">
       
        <div class="container">
@@ -518,5 +397,6 @@
   <script src="js/custom.js"></script>
   <script src="contactform/contactform.js"></script>
 
+<script src="index.js"></script>
 </body>
 </html>
