@@ -55,7 +55,7 @@
                 <ul class="nav navbar-nav navbar-right">
                   <li class="active"><a href="#main-header">Home</a></li>
                   <li class=""><a href="#service">Services</a></li>
-                  <li class=""><a href="#map">Map</a></li>
+                  <li class=""><a href="#map2">Map</a></li>
                   <!-- <li class=""><a href="#portfolio">Portfolio</a></li> -->
                   <li class=""><a href="#team">Team</a></li>
                   <li class=""><a href="#contact">Contact Us</a></li>
@@ -165,23 +165,85 @@
       </div>
     </section>
 
+    <section id="map2" class="section-padding wow fadeInUp delay-05s">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h2 class="service-title pad-bt15">Map</h2>
+            <p class="sub-title pad-bt15">Click on a marker to view the request for help. You can also offer help<br>by posting on the discussion thread that pops up. Double click a<br>marker to remove it from the map.</p>
+            <hr class="bottom-line">
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="map" class="section-padding wow fadeInUp delay-05s">
       <script>
+        var firebaseConfig = {
+          apiKey: "AIzaSyClTM0ddPhZgPoVtifd8TZ0c-LrC0iZshs",
+          authDomain: "covid19saratoga.firebaseapp.com",
+          databaseURL: "https://covid19saratoga.firebaseio.com",
+          projectId: "covid19saratoga",
+          storageBucket: "covid19saratoga.appspot.com",
+          messagingSenderId: "1092626000161",
+          appId: "1:1092626000161:web:86ad46738af11ef21cb660",
+          measurementId: "G-ZFG19C7YDN"
+        };
+        var secondApp = firebase.initializeApp(firebaseConfig, "Second");
+        var ref = secondApp.database().ref("markers");
         function initMap() {
           var mapOptions = {
-                  zoom: 8,
-                  center: new google.maps.LatLng(37.5, -122),
+                  zoom: 14,
+                  center: new google.maps.LatLng(37.270905, -122.021607),
                   mapTypeId: 'roadmap'
             };
             var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-      
-            var goldenGatePosition = {lat: 37.8199,lng: -122.4783};
-            var marker = new google.maps.Marker({
-            position: goldenGatePosition,
-            map: map,
-            title: 'Golden Gate Bridge'
-          });
+            
+            var markers = [];
+
+            ref.on("value", function(snapshot){
+              var val = snapshot.val();
+              console.log(val);
+              var keys = Object.keys(val);
+              for (var i = 0; i < keys.length; i++) {
+                var k = keys[i];
+                var address = val[k].address;
+                var titleFirebase = val[k].subject;
+                console.log(address, titleFirebase);
+                while (address.indexOf(" ")!=-1) {
+                  address = address.replace(" ", "+");
+                }
+                var settings = {
+                  "async": true,
+                  "crossDomain": true,
+                  // "url": "https://us1.locationiq.com/v1/search.php?key=30f21928aaa441&q="+address+"&format=json",
+                  // "url": "https://us1.locationiq.com/v1/search.php?key=30f21928aaa441&street=13069%20Jaccaranda%20Ct&city=Saratoga&state=CA&format=json",
+                  "url": "http://open.mapquestapi.com/geocoding/v1/address?key=f9oaQkd66RB9zzRaVTXXI7Au0eppRrSC&location="+address,
+                  "method": "GET"
+                }
+                $.ajax(settings).done(function (response) {
+                    var marker = new google.maps.Marker({
+                      position: response.results[0].locations[0].latLng,
+                      map: map,
+                      // label: titleFirebase
+                    });
+                    markers.push(marker);
+                });
+
+              }
+            });
+              
+            for (var i = 0; i < markers.length; i++) {
+              var m = markers[i];
+              m.addListener('dblclick', function() {
+                m.setMap(null);
+                m=null;
+                // TODO - remove from firebase.
+            });
+          }
+            
         }
+        
         </script>
         <div id="map"></div>
         <script async defer

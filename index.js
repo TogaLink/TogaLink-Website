@@ -13,7 +13,7 @@ var config = {
 };
   
   // Initialize your Firebase app
-  firebase.initializeApp(config);
+  var app = firebase.initializeApp(config);
   
   // Reference to the recommendations object in your Firebase database
   var ref = firebase.database().ref("markers");
