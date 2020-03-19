@@ -220,7 +220,6 @@
                   "method": "GET"
                 }
                 $.ajax(settings).done(function (response) {
-                    console.log(response.results[0].locations[0].latLng);
                     var marker = new google.maps.Marker({
                       position: response.results[0].locations[0].latLng,
                       map: map,
