@@ -209,7 +209,7 @@
                 var k = keys[i];
                 var address = val[k].address;
                 var titleFirebase = val[k].subject;
-                console.log(address, titleFirebase);
+                console.log(address);
                 while (address.indexOf(" ")!=-1) {
                   address = address.replace(" ", "+");
                 }
@@ -220,6 +220,7 @@
                   "method": "GET"
                 }
                 $.ajax(settings).done(function (response) {
+                    console.log(response.results[0].locations[0].latLng);
                     var marker = new google.maps.Marker({
                       position: response.results[0].locations[0].latLng,
                       map: map,
