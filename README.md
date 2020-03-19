@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/fc7c6907-428b-44df-ac1b-ee949ed708b2/deploy-status)](https://app.netlify.com/sites/covid19saratoga/deploys)
+
 # COVID-19-Saratoga
 *The landing site for COVID-19 Saratoga, in partnership with the Saratoga City Council.*
 
