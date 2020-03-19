@@ -223,7 +223,7 @@
                     var marker = new google.maps.Marker({
                       position: response.results[0].locations[0].latLng,
                       map: map,
-                      label: titleFirebase
+                      // label: titleFirebase
                     });
                     markers.push(marker);
                 });
@@ -233,12 +233,14 @@
               
             for (var i = 0; i < markers.length; i++) {
               var m = markers[i];
-              m.addListener('dblclick', function() {
-                m.setMap(null);
-                m=null;
-                // TODO - remove from firebase.
-            });
-          }
+              // m.addListener('dblclick', function() {
+              //   m.setMap(null);
+              //   m=null;
+              //   // TODO - remove from firebase.
+              // });
+              console.log(m);
+              console.log(m.position);
+            }
         }
         
         </script>
