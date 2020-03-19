@@ -216,8 +216,6 @@
                 var settings = {
                   "async": true,
                   "crossDomain": true,
-                  // "url": "https://us1.locationiq.com/v1/search.php?key=30f21928aaa441&q="+address+"&format=json",
-                  // "url": "https://us1.locationiq.com/v1/search.php?key=30f21928aaa441&street=13069%20Jaccaranda%20Ct&city=Saratoga&state=CA&format=json",
                   "url": "http://open.mapquestapi.com/geocoding/v1/address?key=f9oaQkd66RB9zzRaVTXXI7Au0eppRrSC&location="+address,
                   "method": "GET"
                 }
@@ -225,7 +223,7 @@
                     var marker = new google.maps.Marker({
                       position: response.results[0].locations[0].latLng,
                       map: map,
-                      // label: titleFirebase
+                      label: titleFirebase
                     });
                     markers.push(marker);
                 });
@@ -241,13 +239,12 @@
                 // TODO - remove from firebase.
             });
           }
-            
         }
         
         </script>
         <div id="map"></div>
         <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBD2Q5gab7PCxacJX-hivZOoC1WdhY_g-U&callback=initMap" type="text/javascript">
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_dytFo9oJyKaVjTd9k93YdZgLjtC3T2I&callback=initMap" type="text/javascript">
         </script>
         
     </section>
