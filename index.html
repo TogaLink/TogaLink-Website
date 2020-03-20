@@ -24,6 +24,7 @@
 <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
 
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     
   <!-- =======================================================
     Theme Name: COVID-19 Saratoga
@@ -213,21 +214,32 @@
                 while (address.indexOf(" ")!=-1) {
                   address = address.replace(" ", "+");
                 }
-                var settings = {
-                  "async": true,
-                  "crossDomain": true,
-                  "url": "https://open.mapquestapi.com/geocoding/v1/address?key=f9oaQkd66RB9zzRaVTXXI7Au0eppRrSC&location="+address,
-                  "method": "GET"
-                }
-                $.ajax(settings).done(function (response) {
-                    var marker = new google.maps.Marker({
-                      position: response.results[0].locations[0].latLng,
-                      map: map,
-                      // label: titleFirebase
-                    });
-                    markers.push(marker);
-                });
-
+                axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+                  params:{
+                    address: address,
+                    key:'AIzaSyA_dytFo9oJyKaVjTd9k93YdZgLjtC3T2I'
+                  }
+                })
+                .then(function(response) {
+                  console.log(response);
+                })
+                .catch(function(error) {
+                  console.log(error);
+                })
+                // var settings = {
+                //   "async": true,
+                //   "crossDomain": true,
+                //   "url": "https://open.mapquestapi.com/geocoding/v1/address?key=f9oaQkd66RB9zzRaVTXXI7Au0eppRrSC&location="+address,
+                //   "method": "GET"
+                // }
+                // $.ajax(settings).done(function (response) {
+                //     var marker = new google.maps.Marker({
+                //       position: response.results[0].locations[0].latLng,
+                //       map: map,
+                //       // label: titleFirebase
+                //     });
+                //     markers.push(marker);
+                // });
               }
             });
               
