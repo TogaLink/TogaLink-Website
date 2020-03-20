@@ -295,7 +295,7 @@
                   marker.addListener('dblclick', function() {
                     marker.setMap(null);
                     marker=null;
-                    ref.child(k).remove();
+                    // TODO: REMOVE THIS MARKER FROM FIREBASE
                   });
                   markers.push(marker);
                 })
