@@ -221,12 +221,14 @@
                   }
                 })
                 .then(function(response) {
+                  console.log("in here");
+                  console.log(response.data.results[0].geometry.location);
                   var marker = new google.maps.Marker({
-                      position: response.data.results[0].geometry.location,
-                      map: map,
-                      label: titleFirebase
-                    });
-                    markers.push(marker);
+                    position: response.data.results[0].geometry.location,
+                    map: map,
+                    label: titleFirebase
+                  });
+                  markers.push(marker);
                 })
                 .catch(function(error) {
                   console.log(error);
