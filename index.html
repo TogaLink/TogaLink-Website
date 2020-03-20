@@ -227,7 +227,7 @@
                   marker.addListener('dblclick', function() {
                     marker.setMap(null);
                     marker=null;
-                    // TODO - remove from firebase.
+                    ref.child(k).remove();
                   });
                   markers.push(marker);
                 })
