@@ -224,6 +224,11 @@
                     position: response.data.results[0].geometry.location,
                     map: map,
                   });
+                  marker.addListener('dblclick', function() {
+                    marker.setMap(null);
+                    marker=null;
+                    // TODO - remove from firebase.
+                  });
                   markers.push(marker);
                 })
                 .catch(function(error) {
