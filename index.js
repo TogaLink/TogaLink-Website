@@ -1,6 +1,5 @@
 // import firebase from 'firebase/app';
 // import 'firebase/database';
-
 var config = {
   apiKey: "AIzaSyClTM0ddPhZgPoVtifd8TZ0c-LrC0iZshs",
   authDomain: "covid19saratoga.firebaseapp.com",
@@ -54,6 +53,7 @@ var config = {
     // event is triggered on that element, call submitRecommendation.
   $("#formbutton").click(function() {
     console.log('IN SUBMIT');
+    // $('#markerForm').validate()
     submit();
     location.reload();
   });
