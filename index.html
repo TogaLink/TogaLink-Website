@@ -130,16 +130,17 @@
               .then(function (response) {
                 var marker = new google.maps.Marker({
                   position: response.data.results[0].geometry.location,
-                  map: map,
+                  map,
                 });
                 marker.addListener('dblclick', function () {
+                  const markerRef = k;
                   if (confirm("Are you sure you want to delete this marker?")) {
-                    console.log(k);
-                    console.log(ref.child(k)); // TODO: Fix this: since Firebase is asynchronous, this always 
+                    console.log(markerRef);
+                    console.log(ref.child(markerRef)); // TODO: Fix this: since Firebase is asynchronous, this always 
                                                // removes the LAST marker, not the one that is clicked.
-                    ref.child(k).remove();
+                    ref.child(markerRef).remove();
                     marker.setMap(null);
-                    marker = null;
+                    // marker = null; // unnecessary
                   }
                 });
               })
