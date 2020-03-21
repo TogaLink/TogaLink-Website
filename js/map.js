@@ -54,7 +54,6 @@ function initMap() {
           $('#discussion').toggle('slow');
         } else {
           $('#discussion').show();
-          location.hash = "discussion";
           const { name, subject, message } = val[markerRef];
           $('.assistance-request-title')
             .text(`${name} needs your assistance`);
@@ -71,6 +70,7 @@ function initMap() {
             }
           });
         };
+        location.hash = "discussion";
         prevClickedMarker = marker;
       });
       marker.addListener('dblclick', async function () {
