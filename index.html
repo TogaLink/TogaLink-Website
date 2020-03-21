@@ -117,7 +117,7 @@
             var k = keys[i];
             var address = val[k].address;
             var titleFirebase = val[k].subject;
-            console.log(address);
+            console.log(address, k);
             while (address.indexOf(" ") != -1) {
               address = address.replace(" ", "+");
             }
@@ -133,8 +133,9 @@
                   map: map,
                 });
                 marker.addListener('dblclick', function () {
+                  console.log(k);
+                  console.log(ref.child(k));
                   ref.child(k).remove();
-                  console.log("done");
                   // TODO: REMOVE THIS MARKER FROM FIREBASE
                   marker.setMap(null);
                   marker = null;
