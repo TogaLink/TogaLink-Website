@@ -3,7 +3,6 @@
 }
 
 #discussion .assistance-request-subject {
-  width: 48vw;
   margin: auto;
   border-color: #c0c0c0;
   background: white;
@@ -22,4 +21,85 @@
 
 .form-control {
   resize: none;
+}
+
+#input {
+  height: 59rem;
+}
+
+@media screen and (max-width: 991px) {
+  #input {
+    height: auto;
+  }
+}
+
+#supporters {
+  height: auto;
+}
+
+.supporter-grid {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+@media screen and (max-width: 760px) {
+  .supporter-grid {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 767px) and (min-width: 451px) {
+  .navbar-toggle.collapsed {
+    margin-right: 2.5rem;
+  }
+
+  .navbar-brand {
+    margin-left: 2.5rem;
+  }
+}
+
+.banner-info {
+  width: 86rem;
+  margin: auto;
+}
+
+@media screen and (max-width: 991px) {
+  .banner-info {
+    width: 75rem;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 785px) {
+  .banner-info {
+    width: 69rem;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .banner-info .bnr-sub-title {
+    font-size: 3.3rem;
+  }
+
+  .banner-info {
+    width: 95vw;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .banner-info {
+    margin-top: 15rem;
+  }
+}
+
+.team-pic {
+  margin: auto;
+}
+
+@media screen and (max-width: 1200px) and (min-width: 991px) {
+  .mathew-pic {
+    padding-left: 7rem;
+  }
 }
