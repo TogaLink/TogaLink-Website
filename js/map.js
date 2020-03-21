@@ -62,8 +62,6 @@ function initMap() {
           $('.assistance-request-message')
             .text(message);
 
-          // this.page.url = `https://covid19saratoga.com/#!/${markerRef}`;
-          // this.page.identifier = markerRef;
           DISQUS.reset({
             reload: true,
             config: function() {
