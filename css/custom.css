@@ -94,3 +94,13 @@
     margin-top: 15rem;
   }
 }
+
+.team-pic {
+  margin: auto;
+}
+
+@media screen and (max-width: 1200px) and (min-width: 991px) {
+  .mathew-pic {
+    padding-left: 7rem;
+  }
+}
