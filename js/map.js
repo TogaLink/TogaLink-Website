@@ -23,7 +23,7 @@ function initMap() {
 
   var markers = [];
 
-  ref.on("value", async function (snapshot) {
+  ref.once("value", async function (snapshot) {
     if (!snapshot.exists()) {
       return;
     }
@@ -77,11 +77,13 @@ function initMap() {
       marker.addListener('dblclick', async function () {
         if (confirm("Are you sure you want to delete this marker?")) {
           console.log(k);
-          console.log(ref.child(k)); // TODO: Fix this: since Firebase is asynchronous, this always 
-                                      // removes the LAST marker, not the one that is clicked.
+          console.log(ref.child(k));
           await secondApp.database().ref(`markers/${k}`).remove();
+          if (marker === prevClickedMarker) {
+            $('#discussion').hide();
+            prevClickedMarker = null;
+          }
           marker.setMap(null);
-          // marker = null; // unnecessary
         }
       });
     }
