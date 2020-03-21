@@ -10,6 +10,9 @@ var firebaseConfig = {
 };
 var secondApp = firebase.initializeApp(firebaseConfig, "Second");
 var ref = secondApp.database().ref("markers");
+
+let prevClickedMarker = null;
+
 function initMap() {
   var mapOptions = {
     zoom: 14,
@@ -43,6 +46,17 @@ function initMap() {
             position: response.data.results[0].geometry.location,
             map,
           });
+          marker.addListener('click', () => {
+            const markerRef = k;
+            if (marker === prevClickedMarker) {
+              $('#discussion').toggle('slow');
+            } else {
+              const name = val[markerRef].name;
+              $('.assistance-request-title')
+                .text(`${name} needs your assistance`);
+            }
+            prevClickedMarker = marker;
+          })
           marker.addListener('dblclick', function () {
             const markerRef = k;
             if (confirm("Are you sure you want to delete this marker?")) {

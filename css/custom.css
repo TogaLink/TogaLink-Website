@@ -1,0 +1,9 @@
+#discussion {
+  display: none;
+}
+
+#discussion .assistance-request-text {
+  width: 48vw;
+  margin: auto;
+  background: white;
+}

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+                  <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -17,6 +17,7 @@
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/animate.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/custom.css">
 
   <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-database.js"></script>
@@ -92,7 +93,79 @@
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_dytFo9oJyKaVjTd9k93YdZgLjtC3T2I&callback=initMap"
       type="text/javascript">
-      </script>
+    </script>
+
+    <section id="discussion" class="section-padding wow fadeInUp delay-05s">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h2 class="assistance-request-title service-title pad-bt15">
+              Someone needs your assistance
+            </h2>
+            <input type="text" name="assistance text" class="form-control assistance-request-text" value="123456" readonly="readonly" />
+            <hr class="bottom-line">
+          </div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <div id="sendmessage">Your message has been sent. Thank you!</div>
+        <div id="errormessage"></div>
+        <form id="markerForm" method="post" role="form" class="contactForm">
+          <div class="col-md-3"></div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
+                data-rule-required="true" data-msg-required="Please enter your name" />
+              <div class="validation"></div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
+                data-rule-email="true" data-msg-email="Please enter a valid email" />
+              <div class="validation"></div>
+            </div>
+          </div>
+          <div class="col-md-6 col-md-offset-3">
+            <div class="form-group">
+              <input type="text" class="form-control" name="address" id="address" placeholder="Address"
+                data-rule-minlength="4" data-msg-minlength="Please enter a valid address" />
+              <div class="validation"></div>
+            </div>
+          </div>
+          <div class="col-md-6 col-md-offset-3">
+            <div class="form-group">
+              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
+                data-rule-required="true" data-msg-required="Please enter a subject" />
+              <div class="validation"></div>
+            </div>
+          </div>
+          <div class="col-md-6 col-md-offset-3">
+            <div class="form-group">
+              <textarea class="form-control" id="message" name="message" rows="5" placeholder="Message"
+                data-rule-required="true" data-msg-required="Please enter a message"></textarea>
+              <div class="validation"></div>
+            </div>
+            <center><button id="formbutton" type="button" class="btn btn-primary btn-submit">SUBMIT</button></center>
+          </div>
+        </form>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+      </div>
     </section>
 
     <section id="input" class="section-padding wow fadeInUp delay-05s">
@@ -100,8 +173,6 @@
         <div class="row">
           <div class="col-md-12 text-center">
             <h2 class="service-title pad-bt15">Add a Marker</h2>
-            <p class="sub-title pad-bt15">If you are in need of assistance, fill out the details below, and a marker
-              will be<br>placed on the map for others to view and respond to.</p>
             <hr class="bottom-line">
           </div>
         </div>
