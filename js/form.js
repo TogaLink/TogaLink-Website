@@ -31,7 +31,10 @@ var submit = function () {
   })
 };
 
-$("#formbutton").click(function () {
+console.log("hello");
+
+$("#formbutton").click(e => {
+  e.preventDefault();
   console.log('IN SUBMIT');
   submit();
   location.reload();
