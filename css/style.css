@@ -8,6 +8,10 @@ body {
   overflow-x: hidden;
 }
 
+#supporters img {
+  transition: all 0.4s ease-in-out;
+}
+
 ol, ul {
   list-style: none;
 }
