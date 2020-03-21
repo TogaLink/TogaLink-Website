@@ -70,8 +70,10 @@ function initMap() {
             }
           });
         };
-        location.hash = "discussionContainer";
         prevClickedMarker = marker;
+        setTimeout(function() {
+          location.hash = "discussionContainer";
+        }, 2000);
       });
       marker.addListener('dblclick', async function () {
         if (confirm("Are you sure you want to delete this marker?")) {
