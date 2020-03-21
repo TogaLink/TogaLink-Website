@@ -133,14 +133,15 @@
                   map: map,
                 });
                 marker.addListener('dblclick', function () {
-                  console.log(k);
-                  console.log(ref.child(k));
-                  ref.child(k).remove();
-                  // TODO: REMOVE THIS MARKER FROM FIREBASE
-                  marker.setMap(null);
-                  marker = null;
+                  if (confirm("Are you sure you want to delete this marker?")) {
+                    console.log(k);
+                    console.log(ref.child(k)); // TODO - Fix this: since Firebase is asynchronous, this always 
+                                              // removes the LAST marker, not the one that is clicked.
+                    ref.child(k).remove();
+                    marker.setMap(null);
+                    marker = null;
+                  }
                 });
-                markers.push(marker);
               })
               .catch(function (error) {
                 console.log(error);
