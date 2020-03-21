@@ -133,7 +133,7 @@
                   map: map,
                 });
                 marker.addListener('dblclick', function () {
-                  ref.child(val).child(k).remove();
+                  ref.child(k).remove();
                   console.log("done");
                   // TODO: REMOVE THIS MARKER FROM FIREBASE
                   marker.setMap(null);
