@@ -54,8 +54,43 @@
   .navbar-toggle.collapsed {
     margin-right: 2.5rem;
   }
-  
+
   .navbar-brand {
     margin-left: 2.5rem;
+  }
+}
+
+.banner-info {
+  width: 86rem;
+  margin: auto;
+}
+
+@media screen and (max-width: 991px) {
+  .banner-info {
+    width: 75rem;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 785px) {
+  .banner-info {
+    width: 69rem;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .banner-info .bnr-sub-title {
+    font-size: 3.3rem;
+  }
+
+  .banner-info {
+    width: 95vw;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .banner-info {
+    margin-top: 15rem;
   }
 }
