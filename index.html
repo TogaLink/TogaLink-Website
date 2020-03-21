@@ -133,10 +133,11 @@
                   map: map,
                 });
                 marker.addListener('dblclick', function () {
+                  ref.child(val).child(k).remove();
+                  console.log("done");
                   // TODO: REMOVE THIS MARKER FROM FIREBASE
                   marker.setMap(null);
                   marker = null;
-                  ref.child(val).child(k).remove();
                 });
                 markers.push(marker);
               })
