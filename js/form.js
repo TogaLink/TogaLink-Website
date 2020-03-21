@@ -10,12 +10,12 @@ var config = {
 };
 var app = firebase.initializeApp(config);
 var ref = firebase.database().ref("markers");
-var submit = function () {
-  var name = $("#name").val();
-  var email = $("#email").val();
-  var address = $("#address").val();
-  var subject = $("#subject").val();
-  var message = $("#message").val();
+var submit = function (section) {
+  var name = $(`${section} #name`).val();
+  var email = $(`${section} #email`).val();
+  var address = $(`${section} #address`).val();
+  var subject = $(`${section} #subject`).val();
+  var message = $(`${section} #message`).val();
 
   ref.push({
     "name": name,
@@ -31,11 +31,9 @@ var submit = function () {
   })
 };
 
-console.log("hello");
-
 $("#formbutton").click(e => {
   e.preventDefault();
   console.log('IN SUBMIT');
-  submit();
+  submit('#input');
   location.reload();
 });

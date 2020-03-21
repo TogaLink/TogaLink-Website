@@ -111,63 +111,27 @@
         </div>
       </div>
       <div class="contact-form">
-        <div id="sendmessage">Your message has been sent. Thank you!</div>
-        <div id="errormessage"></div>
-        <form id="markerForm" method="post" role="form" class="contactForm">
-          <div class="col-md-3"></div>
-          <div class="col-md-3">
-            <div class="form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
-                data-rule-required="true" data-msg-required="Please enter your name" />
-              <div class="validation"></div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="form-group">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
-                data-rule-email="true" data-msg-email="Please enter a valid email" />
-              <div class="validation"></div>
-            </div>
-          </div>
-          <div class="col-md-6 col-md-offset-3">
-            <div class="form-group">
-              <input type="text" class="form-control" name="address" id="address" placeholder="Address"
-                data-rule-minlength="4" data-msg-minlength="Please enter a valid address" />
-              <div class="validation"></div>
-            </div>
-          </div>
-          <div class="col-md-6 col-md-offset-3">
-            <div class="form-group">
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
-                data-rule-required="true" data-msg-required="Please enter a subject" />
-              <div class="validation"></div>
-            </div>
-          </div>
-          <div class="col-md-6 col-md-offset-3">
-            <div class="form-group">
-              <textarea class="form-control" id="message" name="message" rows="5" placeholder="Message"
-                data-rule-required="true" data-msg-required="Please enter a message"></textarea>
-              <div class="validation"></div>
-            </div>
-            <center><button id="submit-discussion" type="button" class="btn btn-primary btn-submit">SUBMIT</button></center>
-          </div>
-        </form>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+        <div id="disqus_thread"></div>
+        <script>
+
+          /**
+          *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+          *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+          var disqus_config = function () {
+            this.page.url = 'https://covid19saratoga.com';  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = "unique-identifier"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+          };
+
+          (function () { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://covid19saratoga-com.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
       </div>
     </section>
 
