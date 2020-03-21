@@ -2,8 +2,20 @@
   display: none;
 }
 
-#discussion .assistance-request-text {
+#discussion .assistance-request-subject {
   width: 48vw;
   margin: auto;
+  border-color: #c0c0c0;
   background: white;
+  color: rgb(95, 95, 95) !important;
+  margin-bottom: 1.5rem;
+}
+
+.discussion-line.bottom-line {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.form-control {
+  resize: none;
 }

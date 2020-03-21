@@ -24,6 +24,9 @@ function initMap() {
   var markers = [];
 
   ref.on("value", function (snapshot) {
+    if (!snapshot.exists()) {
+      return;
+    }
     var val = snapshot.val();
     console.log(val);
     var keys = Object.keys(val);
@@ -51,9 +54,14 @@ function initMap() {
             if (marker === prevClickedMarker) {
               $('#discussion').toggle('slow');
             } else {
-              const name = val[markerRef].name;
+              $('#discussion').show();
+              const { name, subject, message } = val[markerRef];
               $('.assistance-request-title')
                 .text(`${name} needs your assistance`);
+              $('.assistance-request-subject')
+                .attr("value", subject);
+              $('.assistance-request-message')
+                .text(message);
             }
             prevClickedMarker = marker;
           })
