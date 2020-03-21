@@ -70,7 +70,7 @@ function initMap() {
             }
           });
         };
-        location.hash = "discussion";
+        location.hash = "discussionContainer";
         prevClickedMarker = marker;
       });
       marker.addListener('dblclick', async function () {
