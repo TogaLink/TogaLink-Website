@@ -54,6 +54,7 @@ function initMap() {
           $('#discussion').toggle('slow');
         } else {
           $('#discussion').show();
+          location.hash = "discussion";
           const { name, subject, message } = val[markerRef];
           $('.assistance-request-title')
             .text(`${name} needs your assistance`);
