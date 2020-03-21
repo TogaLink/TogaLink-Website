@@ -11,6 +11,10 @@
   margin-bottom: 1.5rem;
 }
 
+.disqus-container {
+  float: none;
+}
+
 .discussion-line.bottom-line {
   margin-top: 4rem;
   margin-bottom: 4rem;
