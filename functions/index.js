@@ -23,9 +23,10 @@ exports.onMarkerCreate = functions.database.ref('/markers/{postId}').onCreate((s
     replyTo: email,
     subject: `[TogaLink] COVIDcare: ${name} needs your help!`,
     html: removeSpacesBetweenNewlineAndText(`
-    ${name} (${email}) has placed a marker at ${address}.\n\n
-
-    <strong>Subject</strong>: ${subject}\n
+    ${name} (${email}) has placed a marker at ${address}.
+    <br><br>
+    <strong>Subject</strong>: ${subject}
+    <br>
     <strong>Message</strong>: ${message}`),
   };
   return sgMail.send(msg);
