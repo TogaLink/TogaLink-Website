@@ -47,6 +47,10 @@ h1, h2, h3, h4, h5, h6 {
   height: 800px;
 }
 
+#input2 {
+  background-color: #F3F4F8;
+}
+
 #supporters {
   height: 600px;
   background-color: #F3F4F8;
