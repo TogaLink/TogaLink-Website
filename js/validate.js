@@ -1,1 +1,2 @@
 $('#markerForm').validate();
+$('#volunteerForm').validate();
