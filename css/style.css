@@ -48,13 +48,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #input2 {
-  background-color: #F3F4F8;
   height:500px;
 }
 
 #supporters {
   height: 600px;
-  background-color: #F3F4F8;
 }
 
 #supporters .supporter-logo {
@@ -381,10 +379,10 @@ features
 #service {
   background-color: #F3F4F8;
 }
-/* 
+
 #team {
   background-color: #F3F4F8;
-} */
+}
 
 ul.service-list li i {
   color: #002F2F;
