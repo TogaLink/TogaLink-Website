@@ -15,7 +15,7 @@ if (Object.keys(functions.config()).length) {
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(config.sendgrid.key);
 
-exports.onMarkerCreate = functions.database.ref('/posts/{postId}').onCreate((snapshot, _) => {
+exports.onMarkerCreate = functions.database.ref('/markers/{postId}').onCreate((snapshot, _) => {
   const { name, email, address, subject, message } = snapshot.val();
   const msg = {
     to: 'togalink2020@gmail.com',
