@@ -1,0 +1,1 @@
+$('#markerForm').validate();
