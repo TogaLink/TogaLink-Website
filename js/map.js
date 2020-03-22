@@ -23,7 +23,7 @@ function initMap() {
 
   var addresses = [];
   addresses.push("14800 Andrew Ct, Saratoga, CA 95070");
-  for (var i = 0; i < address.length; i++) {
+  for (var i = 0; i < addresses.length; i++) {
     var ad = addresses[i];
     console.log(ad);
     while (ad.indexOf(" ") != -1) {
