@@ -39,7 +39,7 @@ function initMap() {
         position: response.data.results[0].geometry.location,
         map,
         icon: {                             
-          url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"                          
+          url: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pngkit.com%2Fbigpic%2Fu2q8i1q8w7y3y3a9%2F&psig=AOvVaw0W2BpMmLSXGeweaJy2-pRh&ust=1584989490594000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOi-mYjgrugCFQAAAAAdAAAAABAD"                          
         }
       });
     });
