@@ -5,30 +5,30 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 admin.initializeApp();
 
+let config = require('./env.json');
+if (Object.keys(functions.config()).length) {
+  config = functions.config();
+}
+
 // using Twilio SendGrid's v3 Node.js Library
 // https://github.com/sendgrid/sendgrid-nodejs
 const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+sgMail.setApiKey(config.sendgrid.key);
 
-export const onMarkerCreate = functions.database.ref('/posts/{postId}').onCreate((snapshot, _) => {
+exports.onMarkerCreate = functions.database.ref('/posts/{postId}').onCreate((snapshot, _) => {
   const { name, email, address, subject, message } = snapshot.val();
   const msg = {
     to: 'togalink2020@gmail.com',
     from: 'info@togalink.org',
     replyTo: email,
     subject: `[TogaLink] COVIDcare: ${name} needs your help!`,
-    text: `${name} (${email}) has placed a marker at ${address}.
+    html: removeSpacesBetweenNewlineAndText(`
+    ${name} (${email}) has placed a marker at ${address}.
 
     <strong>Subject</strong>: ${subject}
-    <strong>Message</strong>: ${message}`,
-    html: '<strong>and easy to do anywhere, even with Node.js</strong>'.replace(/\b\t\b/g, ''),
+    <strong>Message</strong>: ${message}`),
   };
   return sgMail.send(msg);
-})
+});
 
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-// exports.helloWorld = functions.https.onRequest((request, response) => {
-//  response.send("Hello from Firebase!");
-// });
+const removeSpacesBetweenNewlineAndText = string => string.replace(/(?<=^|\n) +/g, '');
