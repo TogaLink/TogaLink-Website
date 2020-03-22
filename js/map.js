@@ -21,7 +21,24 @@ function initMap() {
   };
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-  var markers = [];
+  var addresses = [];
+  addresses.push("14800 Andrew Ct, Saratoga, CA 95070");
+  for (var i = 0; i < address.length; i++) {
+    var ad = addresses[i];
+    const resp = await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+        params: {
+          ad,
+          key: 'AIzaSyCUmA1jvhKOYygqrQMVJi8IJmXuW496HGk'
+        }
+      })
+      const marker = new google.maps.Marker({
+        position: resp.data.results[0].geometry.location,
+        map,
+        icon: {                             
+          url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"                          
+        }
+      });
+  }
 
   ref.once("value", async function (snapshot) {
     if (!snapshot.exists()) {
