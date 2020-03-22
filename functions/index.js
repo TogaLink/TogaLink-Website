@@ -22,14 +22,12 @@ exports.onMarkerCreate = functions.database.ref('/markers/{postId}').onCreate((s
     from: 'info@togalink.org',
     replyTo: email,
     subject: `[TogaLink] COVIDcare: ${name} needs your help!`,
-    html: removeSpacesBetweenNewlineAndText(`
-    ${name} (${email}) has placed a marker at ${address}.
+    text: 'Please view in html',
+    html: `${name} (${email}) has placed a marker at ${address}.
     <br><br>
     <strong>Subject</strong>: ${subject}
     <br>
-    <strong>Message</strong>: ${message}`),
+    <strong>Message</strong>: ${message}`,
   };
   return sgMail.send(msg);
 });
-
-const removeSpacesBetweenNewlineAndText = string => string.replace(/(?<=^|\n) +/g, '');
