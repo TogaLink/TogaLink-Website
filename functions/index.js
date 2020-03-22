@@ -10,6 +10,22 @@ admin.initializeApp();
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
+export const onMarkerCreate = functions.database.ref('/posts/{postId}').onCreate((snapshot, _) => {
+  const { name, email, address, subject, message } = snapshot.val();
+  const msg = {
+    to: 'togalink2020@gmail.com',
+    from: 'info@togalink.org',
+    replyTo: email,
+    subject: `[TogaLink] COVIDcare: ${name} needs your help!`,
+    text: `${name} (${email}) has placed a marker at ${address}.
+
+    <strong>Subject</strong>: ${subject}
+    <strong>Message</strong>: ${message}`,
+    html: '<strong>and easy to do anywhere, even with Node.js</strong>'.replace(/\b\t\b/g, ''),
+  };
+  return sgMail.send(msg);
+})
+
 // // Create and Deploy Your First Cloud Functions
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 //
