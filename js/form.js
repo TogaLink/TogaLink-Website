@@ -10,6 +10,7 @@ var config = {
 };
 var app = firebase.initializeApp(config);
 var ref = firebase.database().ref("markers");
+var ref2 = firebase.database().ref("volunteers");
 var submit = function (section) {
   var name = $(`${section} #name`).val();
   var email = $(`${section} #email`).val();
@@ -31,9 +32,36 @@ var submit = function (section) {
   })
 };
 
+var submit2 = function (section) {
+  var name = $(`${section} #name2`).val();
+  var email = $(`${section} #email2`).val();
+  var address = $(`${section} #address2`).val();
+  var phone = $(`${section} #phone`).val();
+
+  ref2.push({
+    "name": name,
+    "email": email,
+    "address": address,
+    "phone": phone,
+  }).then(function (ref) {
+    console.log(ref.parent + "/" + ref.key);
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
+};
+
+
 $("#formbutton").click(e => {
   e.preventDefault();
   console.log('IN SUBMIT');
   submit('#input');
+  location.reload();
+});
+
+$("#formbutton2").click(e => {
+  e.preventDefault();
+  console.log('IN SUBMIT');
+  submit2('#input2');
   location.reload();
 });

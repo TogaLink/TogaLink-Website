@@ -10,6 +10,7 @@ var firebaseConfig = {
 };
 var secondApp = firebase.initializeApp(firebaseConfig, "Second");
 var ref = secondApp.database().ref("markers");
+var ref2 = secondApp.database().ref("volunteers");
 
 let prevClickedMarker = null;
 
@@ -20,30 +21,6 @@ function initMap() {
     mapTypeId: 'roadmap'
   };
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-  var addresses = [];
-  addresses.push("14800 Andrew Ct, Saratoga, CA 95070");
-  for (var i = 0; i < addresses.length; i++) {
-    var ad = addresses[i];
-    console.log(ad);
-    while (ad.indexOf(" ") != -1) {
-      ad = ad.replace(" ", "+");
-    }
-    axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
-      params: {
-        address: ad,
-        key: 'AIzaSyCUmA1jvhKOYygqrQMVJi8IJmXuW496HGk'
-      }
-    }).then(function(response) {
-      const marker = new google.maps.Marker({
-        position: response.data.results[0].geometry.location,
-        map,
-        icon: {                             
-          url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"                          
-        }
-      });
-    });
-  }
 
   ref.once("value", async function (snapshot) {
     if (!snapshot.exists()) {
@@ -106,6 +83,53 @@ function initMap() {
             $('#discussion').hide();
             prevClickedMarker = null;
           }
+          marker.setMap(null);
+        }
+      });
+    }
+  });
+
+  ref2.once("value", async function (snapshot) {
+    if (!snapshot.exists()) {
+      return;
+    }
+    var val = snapshot.val();
+    console.log(val);
+    var keys = Object.keys(val);
+    for (var i = 0; i < keys.length; i++) {
+      const k = keys[i];
+      var address = val[k].address;
+      var titleFirebase = val[k].subject;
+      console.log(address, k);
+      while (address.indexOf(" ") != -1) {
+        address = address.replace(" ", "+");
+      }
+      const response = await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+        params: {
+          address,
+          key: 'AIzaSyCUmA1jvhKOYygqrQMVJi8IJmXuW496HGk'
+        }
+      })
+      const marker = new google.maps.Marker({
+        position: response.data.results[0].geometry.location,
+        map,
+        icon: {                             
+          url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"                          
+        }
+      });
+      marker.addListener('click', () => {
+        const markerRef = k;
+        const { name, email, phone } = val[markerRef];
+        var infowindow = new google.maps.InfoWindow({
+          content: "Name: " + name+", Email: " + email + ", Phone #: " + phone,
+        });
+        infowindow.open(map,marker);
+      });
+      marker.addListener('dblclick', async function () {
+        if (confirm("Are you sure you want to delete this marker?")) {
+          console.log(k);
+          console.log(ref.child(k));
+          await secondApp.database().ref(`volunteers/${k}`).remove();
           marker.setMap(null);
         }
       });
