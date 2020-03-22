@@ -25,6 +25,9 @@ function initMap() {
   addresses.push("14800 Andrew Ct, Saratoga, CA 95070");
   for (var i = 0; i < address.length; i++) {
     var ad = addresses[i];
+    while (ad.indexOf(" ") != -1) {
+      ad = ad.replace(" ", "+");
+    }
     axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
       params: {
         ad,
