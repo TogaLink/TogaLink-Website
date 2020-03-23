@@ -17,7 +17,7 @@ let prevClickedMarker = null;
 
 function initMap() {
   var mapOptions = {
-    zoom: 14,
+    zoom: 8,
     center: new google.maps.LatLng(37.270905, -122.021607),
     mapTypeId: 'roadmap'
   };
