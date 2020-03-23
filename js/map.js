@@ -18,7 +18,7 @@ let prevClickedMarker = null;
 function initMap() {
   var mapOptions = {
     zoom: 8,
-    center: new google.maps.LatLng(37.270905, -122.021607),
+    center: new google.maps.LatLng(37.396465, 122.014206),
     mapTypeId: 'roadmap'
   };
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
