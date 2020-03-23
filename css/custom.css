@@ -103,3 +103,7 @@
     padding-left: 7rem;
   }
 }
+
+.credits-container > div:not(:first-child) {
+  margin-top: 1rem;
+}
