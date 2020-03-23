@@ -8,7 +8,8 @@ var firebaseConfig = {
   appId: "1:1092626000161:web:86ad46738af11ef21cb660",
   measurementId: "G-ZFG19C7YDN"
 };
-var app = firebase.initializeApp(firebaseConfig, "Second");
+var app = firebase.initializeApp(firebaseConfig);
+const analytics = firebase.analytics();
 var ref = app.database().ref("markers");
 var ref2 = app.database().ref("volunteers");
 
