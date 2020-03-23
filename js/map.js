@@ -48,9 +48,11 @@ function initMap() {
         map,
       });
       marker.addListener('click', () => {
+        // TODO: Make all blue markers within a half-mile radius twice as large
         const markerRef = k;
         if (marker === prevClickedMarker) {
           $('#discussion').toggle('slow');
+          // TODO: Make all blue markers normal size again
         } else {
           $('#discussion').show();
           const { name, subject, message } = val[markerRef];
