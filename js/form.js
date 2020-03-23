@@ -40,6 +40,11 @@ var submit2 = function (section) {
   })
 };
 
+var search = function (section) {
+  // TODO: Finish
+  // Add new section with loaded results ordered by distance and go to that section
+};
+
 
 $("#formbutton").click(e => {
   e.preventDefault();
@@ -53,4 +58,10 @@ $("#formbutton2").click(e => {
   console.log('IN SUBMIT');
   submit2('#input2');
   location.reload();
+});
+
+$("#searchbutton").click(e => {
+  e.preventDefault();
+  console.log('IN SUBMIT');
+  search('#map2');
 });
