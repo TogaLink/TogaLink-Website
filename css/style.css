@@ -71,7 +71,7 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: 1px solid #e0e5fa; */
   overflow: visible;
   height: 100%;
-  width: auto
+  transform: scale(0.7);
 }
 
 #supporters .supporter-logo:hover img,
