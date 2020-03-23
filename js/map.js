@@ -8,9 +8,9 @@ var firebaseConfig = {
   appId: "1:1092626000161:web:86ad46738af11ef21cb660",
   measurementId: "G-ZFG19C7YDN"
 };
-var secondApp = firebase.initializeApp(firebaseConfig, "Second");
-var ref = secondApp.database().ref("markers");
-var ref2 = secondApp.database().ref("volunteers");
+var app = firebase.initializeApp(firebaseConfig, "Second");
+var ref = app.database().ref("markers");
+var ref2 = app.database().ref("volunteers");
 
 let prevClickedMarker = null;
 
@@ -78,7 +78,7 @@ function initMap() {
         if (confirm("Are you sure you want to delete this marker?")) {
           console.log(k);
           console.log(ref.child(k));
-          await secondApp.database().ref(`markers/${k}`).remove();
+          await app.database().ref(`markers/${k}`).remove();
           if (marker === prevClickedMarker) {
             $('#discussion').hide();
             prevClickedMarker = null;
@@ -129,7 +129,7 @@ function initMap() {
         if (confirm("Are you sure you want to delete this marker?")) {
           console.log(k);
           console.log(ref.child(k));
-          await secondApp.database().ref(`volunteers/${k}`).remove();
+          await app.database().ref(`volunteers/${k}`).remove();
           marker.setMap(null);
         }
       });
