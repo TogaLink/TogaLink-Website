@@ -1,9 +1,11 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/fc7c6907-428b-44df-ac1b-ee949ed708b2/deploy-status)](https://app.netlify.com/sites/covid19saratoga/deploys)
 
-# COVID-19-Saratoga
-*The landing site for COVID-19 Saratoga, in partnership with the Saratoga City Council.*
+# TogaLink
+
+*The landing site for TogaLink, in partnership with the Saratoga City Council.*
 
 # Git workflow
+
 1. For a new bug fix or feature idea, add it to the To-Do column of the project board.
 2. When you can work on it, move it to In Progress, convert it to an issue, and self assign it.
 3. Create a new branch with `git checkout -b [branch-name]` and `git push -u` (branches are `kebab-cased`).
