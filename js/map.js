@@ -128,14 +128,14 @@ function initMap() {
         });
         infowindow.open(map,marker);
       });
-      marker.addListener('dblclick', async function () {
-        if (confirm("Are you sure you want to delete this marker?")) {
-          console.log(k);
-          console.log(ref.child(k));
-          await app.database().ref(`volunteers/${k}`).remove();
-          marker.setMap(null);
-        }
-      });
+      // marker.addListener('dblclick', async function () {
+      //   if (confirm("Are you sure you want to delete this marker?")) {
+      //     console.log(k);
+      //     console.log(ref.child(k));
+      //     await app.database().ref(`volunteers/${k}`).remove();
+      //     marker.setMap(null);
+      //   }
+      // });
     }
   });
 }
