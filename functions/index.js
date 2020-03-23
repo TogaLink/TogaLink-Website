@@ -18,7 +18,7 @@ sgMail.setApiKey(config.sendgrid.key);
 exports.onMarkerCreate = functions.database.ref('/markers/{postId}').onCreate((snapshot, _) => {
   const { name, email, address, subject, message } = snapshot.val();
   const msg = {
-    to: 'togalink2020@gmail.com',
+    to: 'togalink2020@gmail.com', // TODO: change this to campaign@rishi2020.com
     from: 'info@togalink.org',
     replyTo: email,
     subject: `[TogaLink] COVIDcare: ${name} needs your help!`,
