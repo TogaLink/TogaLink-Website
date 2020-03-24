@@ -10,8 +10,8 @@ var firebaseConfig = {
 };
 var app = firebase.initializeApp(firebaseConfig);
 const analytics = firebase.analytics();
-var ref = app.database().ref("markers");
-var ref2 = app.database().ref("volunteers");
+var refMarkers = app.database().ref("markers");
+var refVolunteers = app.database().ref("volunteers");
 
 let prevClickedMarker = null;
 
@@ -23,7 +23,7 @@ function initMap() {
   };
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-  ref.once("value", async function (snapshot) {
+  refMarkers.once("value", async function (snapshot) {
     if (!snapshot.exists()) {
       return;
     }
@@ -80,7 +80,7 @@ function initMap() {
       marker.addListener('dblclick', async function () {
         if (confirm("Are you sure you want to delete this marker?")) {
           console.log(k);
-          console.log(ref.child(k));
+          console.log(refMarkers.child(k));
           await app.database().ref(`markers/${k}`).remove();
           if (marker === prevClickedMarker) {
             $('#discussion').hide();
@@ -92,7 +92,7 @@ function initMap() {
     }
   });
 
-  ref2.once("value", async function (snapshot) {
+  refVolunteers.once("value", async function (snapshot) {
     if (!snapshot.exists()) {
       return;
     }

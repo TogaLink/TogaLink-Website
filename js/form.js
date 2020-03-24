@@ -1,5 +1,5 @@
-var ref = firebase.database().ref("markers");
-var ref2 = firebase.database().ref("volunteers");
+var refMarkers = firebase.database().ref("markers");
+var refVolunteers = firebase.database().ref("volunteers");
 var submit = function (section) {
   var name = $(`${section} #name`).val();
   var email = $(`${section} #email`).val();
@@ -7,14 +7,14 @@ var submit = function (section) {
   var subject = $(`${section} #subject`).val();
   var message = $(`${section} #message`).val();
 
-  ref.push({
+  refMarkers.push({
     "name": name,
     "email": email,
     "address": address,
     "subject": subject,
     "message": message
-  }).then(function (ref) {
-    console.log(ref.parent + "/" + ref.key);
+  }).then(function (refMarkers) {
+    console.log(refMarkers.parent + "/" + refMarkers.key);
   })
   .catch(function (error) {
     console.log(error);
@@ -27,13 +27,13 @@ var submit2 = function (section) {
   var address = $(`${section} #address2`).val();
   var phone = $(`${section} #phone`).val();
 
-  ref2.push({
+  refVolunteers.push({
     "name": name,
     "email": email,
     "address": address,
     "phone": phone,
-  }).then(function (ref) {
-    console.log(ref.parent + "/" + ref.key);
+  }).then(function (refMarkers) {
+    console.log(refMarkers.parent + "/" + refMarkers.key);
   })
   .catch(function (error) {
     console.log(error);
