@@ -55,7 +55,15 @@ h1, h2, h3, h4, h5, h6 {
   height: 600px;
 }
 
-#supporters .supporter-logo {
+#sanmateo {
+  transform: scale(0.9);
+}
+
+/* #santaclara {
+  transform: scale(0.);
+} */
+
+#supporters .supporter-logo{
   padding: 0px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -72,6 +80,13 @@ h1, h2, h3, h4, h5, h6 {
   overflow: visible;
   height: 100%;
   transform: scale(0.7);
+}
+
+img {
+  margin: auto;
+  width: 100%;
+  max-width: 400px;
+  max-height:400px;
 }
 
 #supporters .supporter-logo:hover img,
