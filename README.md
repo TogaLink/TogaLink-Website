@@ -1,8 +1,8 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/fc7c6907-428b-44df-ac1b-ee949ed708b2/deploy-status)](https://app.netlify.com/sites/covid19saratoga/deploys)
 
-# TogaLink
+# [TogaLink](https://togalink.org/)
 
-*The landing site for TogaLink, in partnership with the Saratoga City Council.*
+*The landing site for TogaLink, in partnership with the City of Saratoga. In use by the San Mateo, Santa Cruz, and Santa Clara Counties.*
 
 # Git workflow
 
