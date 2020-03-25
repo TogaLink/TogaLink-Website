@@ -1,12 +1,6 @@
 const addToFirebase = async (ref, obj) => {
   const { address } = obj;
-  const response = await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
-    params: {
-      address,
-      key: 'AIzaSyCUmA1jvhKOYygqrQMVJi8IJmXuW496HGk'
-    }
-  });
-  const { lat, lng } = response.data.results[0].geometry.location;
+  const { lat, lng } = await toCoords(address);
   const key = ref.push().key;
   const geoFire = new geofire.GeoFire(ref)
   await geoFire.set(`geo${key}`, [lat, lng]);
@@ -33,8 +27,16 @@ var submit2 = async function (section) {
   await addToFirebase(refVolunteers, { name, email, address, phone });
 };
 
-var search = function (section) {
-  // TODO: Finish
+const search = async section => {
+  const address = $(`${section} #address3`).val();
+  const center = await toCoords(address);
+  const radius = 0.310686; // 0.5 mi in km
+
+  geoFireVolunteers.query({ center, radius });
+
+  geoFireVolunteers.on('key_entered', (key, location, distance) => {
+    
+  })
   // Add new section with loaded results ordered by distance and go to that section
 };
 

@@ -9,6 +9,7 @@ var firebaseConfig = {
   measurementId: "G-ZFG19C7YDN"
 };
 var app = firebase.initializeApp(firebaseConfig);
+const db = app.database();
 const analytics = firebase.analytics();
-var refMarkers = app.database().ref("markers");
-var refVolunteers = app.database().ref("volunteers");
+var refMarkers = db.ref("markers");
+var refVolunteers = db.ref("volunteers");
