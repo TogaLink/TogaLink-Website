@@ -119,9 +119,28 @@
 }
 
 .nearby-volunteers-search-result {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   background-color: white;
   border-radius: 0;
   border: 0.1rem solid var(--primary-color);
+}
+
+.nearby-volunteers-search-result__avatar {
+  margin-left: 3.25rem;
+  margin-right: 1rem;
+  width: 12.5rem;
+  height: auto;
+}
+
+.nearby-volunteers-search-result__contact-info {
+  margin: 2rem;
+  text-align: left;
+}
+
+.nearby-volunteers-search-result__name {
+  margin-top: 1rem;
 }
 
 /* facebook-like loading spinner (got it from loading.io/css) */
@@ -156,7 +175,8 @@
     top: 8px;
     height: 64px;
   }
-  50%, 100% {
+  50%,
+  100% {
     top: 24px;
     height: 32px;
   }
