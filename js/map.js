@@ -1,18 +1,3 @@
-var firebaseConfig = {
-  apiKey: "AIzaSyClTM0ddPhZgPoVtifd8TZ0c-LrC0iZshs",
-  authDomain: "covid19saratoga.firebaseapp.com",
-  databaseURL: "https://covid19saratoga.firebaseio.com",
-  projectId: "covid19saratoga",
-  storageBucket: "covid19saratoga.appspot.com",
-  messagingSenderId: "1092626000161",
-  appId: "1:1092626000161:web:86ad46738af11ef21cb660",
-  measurementId: "G-ZFG19C7YDN"
-};
-var app = firebase.initializeApp(firebaseConfig);
-const analytics = firebase.analytics();
-var refMarkers = app.database().ref("markers");
-var refVolunteers = app.database().ref("volunteers");
-
 let prevClickedMarker = null;
 
 function initMap() {
@@ -32,6 +17,9 @@ function initMap() {
     var keys = Object.keys(val);
     for (var i = 0; i < keys.length; i++) {
       const k = keys[i];
+      if (k.startsWith('geo')) {
+        continue;
+      }
       var address = val[k].address;
       var titleFirebase = val[k].subject;
       console.log(address, k);
@@ -82,6 +70,7 @@ function initMap() {
           console.log(k);
           console.log(refMarkers.child(k));
           await app.database().ref(`markers/${k}`).remove();
+          await app.database().ref(`markers/geo${k}`).remove();
           if (marker === prevClickedMarker) {
             $('#discussion').hide();
             prevClickedMarker = null;
@@ -101,6 +90,9 @@ function initMap() {
     var keys = Object.keys(val);
     for (var i = 0; i < keys.length; i++) {
       const k = keys[i];
+      if (k.startsWith('geo')) {
+        continue;
+      }
       var address = val[k].address;
       var titleFirebase = val[k].subject;
       console.log(address, k);

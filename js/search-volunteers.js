@@ -1,2 +1,2 @@
-const geoFire = new GeoFire(refVolunteers);
+const geoFireVolunteers = new geofire.GeoFire(refVolunteers);
 

@@ -1,43 +1,36 @@
-var refMarkers = firebase.database().ref("markers");
-var refVolunteers = firebase.database().ref("volunteers");
-var submit = function (section) {
+const addToFirebase = async (ref, obj) => {
+  const { address } = obj;
+  const response = await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+    params: {
+      address,
+      key: 'AIzaSyCUmA1jvhKOYygqrQMVJi8IJmXuW496HGk'
+    }
+  });
+  const { lat, lng } = response.data.results[0].geometry.location;
+  const key = ref.push().key;
+  const geoFire = new geofire.GeoFire(ref)
+  await geoFire.set(`geo${key}`, [lat, lng]);
+
+  ref.child(key).set(obj);
+}
+
+var submit = async function (section) {
   var name = $(`${section} #name`).val();
   var email = $(`${section} #email`).val();
   var address = $(`${section} #address`).val();
   var subject = $(`${section} #subject`).val();
   var message = $(`${section} #message`).val();
 
-  refMarkers.push({
-    "name": name,
-    "email": email,
-    "address": address,
-    "subject": subject,
-    "message": message
-  }).then(function (refMarkers) {
-    console.log(refMarkers.parent + "/" + refMarkers.key);
-  })
-  .catch(function (error) {
-    console.log(error);
-  })
+  await addToFirebase(refMarkers, { name, email, address, subject, message });
 };
 
-var submit2 = function (section) {
+var submit2 = async function (section) {
   var name = $(`${section} #name2`).val();
   var email = $(`${section} #email2`).val();
   var address = $(`${section} #address2`).val();
   var phone = $(`${section} #phone`).val();
-
-  refVolunteers.push({
-    "name": name,
-    "email": email,
-    "address": address,
-    "phone": phone,
-  }).then(function (refMarkers) {
-    console.log(refMarkers.parent + "/" + refMarkers.key);
-  })
-  .catch(function (error) {
-    console.log(error);
-  })
+  
+  await addToFirebase(refVolunteers, { name, email, address, phone });
 };
 
 var search = function (section) {
@@ -46,17 +39,17 @@ var search = function (section) {
 };
 
 
-$("#formbutton").click(e => {
+$("#formbutton").click(async e => {
   e.preventDefault();
   console.log('IN SUBMIT');
-  submit('#input');
+  await submit('#input');
   location.reload();
 });
 
-$("#formbutton2").click(e => {
+$("#formbutton2").click(async e => {
   e.preventDefault();
   console.log('IN SUBMIT');
-  submit2('#input2');
+  await submit2('#input2');
   location.reload();
 });
 
