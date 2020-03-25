@@ -27,6 +27,7 @@
   <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.0.8/purify.min.js"></script>
   <script type="text/javascript" src="js/firebase.js"></script>
   <script src="https://cdn.firebase.com/libs/geofire/5.0.1/geofire.min.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
@@ -121,9 +122,28 @@
                   </center>
                 </div>
               </form>
-
             </div>
           </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <div class="nearby-volunteers-list">
+              <div class="nearby-volunteers-search-result">
+                <img class="nearby-volunteers-search-result__avatar" src="https://unavatar.now.sh/happymvw@gmail.com">
+                <h3 class="nearby-volunteers-search-result__name">Mathew Wang</h3>
+                <h4 class="nearby-volunteers-search-result__distance">1.6 miles</h4>
+                <h5 class="nearby-volunteers-search-result__email">happymvw@gmail.com</h5>
+                <div class="nearby-volunteers-search-result__phone">+1 (111) 222-3333</div>
+              </div>
+            </div>
+            <div class="nearby-volunteers-loading-spinner lds-facebook">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <script src="js/map.js"></script>
@@ -431,6 +451,7 @@
   <script src="js/jquery.bxslider.min.js"></script>
   <script src="js/custom.js"></script>
   <script type="text/javascript" src="js/validate.js"></script>
+  <script defer src="js/geocode.js"></script>
   <script defer src="js/form.js"></script>
   <script defer src="js/search-volunteers.js"></script>
   <script src="js/resize-map-instructions.js"></script>

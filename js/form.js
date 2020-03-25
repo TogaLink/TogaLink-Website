@@ -27,20 +27,6 @@ var submit2 = async function (section) {
   await addToFirebase(refVolunteers, { name, email, address, phone });
 };
 
-const search = async section => {
-  const address = $(`${section} #address3`).val();
-  const center = await toCoords(address);
-  const radius = 0.310686; // 0.5 mi in km
-
-  geoFireVolunteers.query({ center, radius });
-
-  geoFireVolunteers.on('key_entered', (key, location, distance) => {
-    
-  })
-  // Add new section with loaded results ordered by distance and go to that section
-};
-
-
 $("#formbutton").click(async e => {
   e.preventDefault();
   console.log('IN SUBMIT');
