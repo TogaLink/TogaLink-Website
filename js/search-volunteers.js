@@ -16,7 +16,7 @@ const SearchResult = ({ name, distance, email, phone }) => sanitize `
 const Kumar = () => sanitize `
   <div class="nearby-volunteers-search-result">
   <address class="nearby-volunteers-search-result__contact-info">
-    <center><h3 class="nearby-volunteers-search-result__name">No results found. Contact Rishi Kumar<br>
+    <center><h3 class="nearby-volunteers-search-result__name">No nearby volunteers found. Please contact Rishi Kumar<br>
     at <a href="mailto:Campaign@Rishi2020.com">Campaign@Rishi2020.com</a> if you would like a volunteer in your area.</h3></center>
     <center><h4 class="nearby-volunteers-search-result__email">${email}</h4></center>
     <center><h4 class="nearby-volunteers-search-result__distance">${distance.toFixed(2)} miles away from you</h4></center>
@@ -35,7 +35,12 @@ const search = async section => {
     loadingSpinner.show();
 
     const address = $(`${section} #address3`).val();
-    const { lat, lng } = await toCoords(address);
+    const [coords, err] = await handle(toCoords(address));
+    if (err) {
+      console.log(err);
+    };
+
+    const { lat, lng } = coords;
     const center = [lat, lng];
     const radius = miToKm(0.5); // geofire uses km
 
