@@ -1,20 +1,23 @@
 const geoFireVolunteers = new geofire.GeoFire(refVolunteers);
+const nearbyVolunteersList = $('.nearby-volunteers-list');
+const nearbyVolunteersLoadingSpinner = $('.nearby-volunteers-loading-spinner');
 
 const SearchResult = ({ name, distance, email, phone }) => sanitize`
   <div class="nearby-volunteers-search-result">
-  <img class="nearby-volunteers-search-result__avatar" src="//images.weserv.nl/?url=unavatar.now.sh/${email}&w=125&h=125&mask=circle">
-  <address class="nearby-volunteers-search-result__contact-info">
-    <h3 class="nearby-volunteers-search-result__name">${name}</h3>
-    <h4 class="nearby-volunteers-search-result__distance">${distance} miles</h4>
-    <h4 class="nearby-volunteers-search-result__email">${email}</h4>
-    <h4 class="nearby-volunteers-search-result__phone">${phone}</h4>
-  </address>
+    <img class="nearby-volunteers-search-result__avatar" src="//images.weserv.nl/?url=unavatar.now.sh/${email}&w=125&h=125&mask=circle">
+    <address class="nearby-volunteers-search-result__contact-info">
+      <h3 class="nearby-volunteers-search-result__name">${name}</h3>
+      <h4 class="nearby-volunteers-search-result__distance">${distance} miles</h4>
+      <h4 class="nearby-volunteers-search-result__email">${email}</h4>
+      <h4 class="nearby-volunteers-search-result__phone">${phone}</h4>
+    </address>
   </div> 
 `;
 
 const search = async section => {
-  const nearbyVolunteersList = $('.nearby-volunteers-list');
+  $('.nearby-volunteers-search-result').remove(); // remove all stale results
   nearbyVolunteersList.show();
+  nearbyVolunteersLoadingSpinner.show();
 
   const address = $(`${section} #address3`).val();
   const { lat, lng } = await toCoords(address);
@@ -32,5 +35,5 @@ const search = async section => {
   });
 
   // 'ready' means query is done
-  geoQuery.on('ready', () => $('.nearby-volunteers-loading-spinner').hide()); 
+  geoQuery.on('ready', () => nearbyVolunteersLoadingSpinner.hide()); 
 };
