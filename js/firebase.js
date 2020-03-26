@@ -10,6 +10,7 @@ var firebaseConfig = {
 };
 var app = firebase.initializeApp(firebaseConfig);
 const db = app.database();
+const perf = firebase.performance();
 const analytics = firebase.analytics();
 var refMarkers = db.ref("markers");
 var refVolunteers = db.ref("volunteers");
