@@ -9,9 +9,8 @@ const SearchResult = ({ name, distance, email, phone }) => sanitize `
   <div class="nearby-volunteers-search-result">
     <address class="nearby-volunteers-search-result__contact-info">
       <center><h3 class="nearby-volunteers-search-result__name">${name}</h3></center>
-      <center><h4 class="nearby-volunteers-search-result__distance">${distance.toFixed(2)} miles away</h4></center>
       <center><h4 class="nearby-volunteers-search-result__email">${email}</h4></center>
-      <center><h4 class="nearby-volunteers-search-result__phone">${phone}</h4></center>
+      <center><h4 class="nearby-volunteers-search-result__distance">${distance.toFixed(2)} miles away from you</h4></center>
     </address>
   </div> 
 `;
@@ -21,7 +20,7 @@ const miToKm = mi => mi / 0.62137;
 
 const search = async section => {
     // remove all stale results
-    volunteersList.empty(); 
+    volunteersList.empty();
     searchResults.length = 0;
 
     loadingSpinner.show();
@@ -34,17 +33,17 @@ const search = async section => {
     const geoQuery = geoFireVolunteers.query({ center, radius });
 
     geoQuery.on('key_entered', async(geoKey, _, distance) => {
-      const key = geoKey.substring('geo'.length);
-      const snapshot = await refVolunteers.child(key).once('value');
-      const { name, email, phone } = snapshot.val();
-        
-      distance = kmToMi(distance);
+        const key = geoKey.substring('geo'.length);
+        const snapshot = await refVolunteers.child(key).once('value');
+        const { name, email, phone } = snapshot.val();
 
-      searchResults.push({ name, distance, email, phone });
-      searchResults.sort((a, b) => a.distance - b.distance);
-    
-      volunteersList.html(
-        searchResults.map(SearchResult).join(''));
+        distance = kmToMi(distance);
+
+        searchResults.push({ name, distance, email, phone });
+        searchResults.sort((a, b) => a.distance - b.distance);
+
+        volunteersList.html(
+            searchResults.map(SearchResult).join(''));
     });
 
     // 'ready' means query is done
