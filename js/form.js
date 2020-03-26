@@ -49,5 +49,6 @@ $("#searchForm").submit(e => {
 $("#searchbutton").click(e => {
   e.preventDefault();
   console.log('IN SUBMIT');
-  search('#map2');
+  
+  // search('#map2');
 });
