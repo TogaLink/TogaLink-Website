@@ -1,6 +1,7 @@
 const geoFireVolunteers = new geofire.GeoFire(refVolunteers);
-const nearbyVolunteersList = $('.nearby-volunteers-list');
-const nearbyVolunteersLoadingSpinner = $('.nearby-volunteers-loading-spinner');
+const volunteersList = $('.nearby-volunteers-list');
+const searchResults = [];
+const loadingSpinner = $('.nearby-volunteers-loading-spinner');
 
 //     <img class="nearby-volunteers-search-result__avatar" src="//images.weserv.nl/?url=unavatar.now.sh/${email}&w=125&h=125&mask=circle">
 
@@ -15,26 +16,37 @@ const SearchResult = ({ name, distance, email, phone }) => sanitize `
   </div> 
 `;
 
+const kmToMi = km => km * 0.62137;
+const miToKm = mi => mi / 0.62137;
+
 const search = async section => {
-    $('.nearby-volunteers-search-result').remove(); // remove all stale results
-    nearbyVolunteersList.show();
-    nearbyVolunteersLoadingSpinner.show();
+    // remove all stale results
+    volunteersList.empty(); 
+    searchResults.length = 0;
+
+    loadingSpinner.show();
 
     const address = $(`${section} #address3`).val();
     const { lat, lng } = await toCoords(address);
     const center = [lat, lng];
-    const radius = 0.310686; // 0.5 mi in km
+    const radius = miToKm(0.5); // geofire uses km
 
     const geoQuery = geoFireVolunteers.query({ center, radius });
 
     geoQuery.on('key_entered', async(geoKey, _, distance) => {
-        const key = geoKey.substring('geo'.length);
-        const snapshot = await refVolunteers.child(key).once('value');
-        const { name, email, phone } = snapshot.val();
+      const key = geoKey.substring('geo'.length);
+      const snapshot = await refVolunteers.child(key).once('value');
+      const { name, email, phone } = snapshot.val();
+        
+      distance = kmToMi(distance);
 
-        nearbyVolunteersList.prepend(SearchResult({ name, distance, email, phone }));
+      searchResults.push({ name, distance, email, phone });
+      searchResults.sort((a, b) => a.distance - b.distance);
+    
+      volunteersList.html(
+        searchResults.map(SearchResult).join(''));
     });
 
     // 'ready' means query is done
-    geoQuery.on('ready', () => nearbyVolunteersLoadingSpinner.hide());
+    geoQuery.on('ready', () => loadingSpinner.hide());
 };
