@@ -3,8 +3,6 @@ const volunteersList = $('.nearby-volunteers-list');
 const searchResults = [];
 const loadingSpinner = $('.nearby-volunteers-loading-spinner');
 
-//     <img class="nearby-volunteers-search-result__avatar" src="//images.weserv.nl/?url=unavatar.now.sh/${email}&w=125&h=125&mask=circle">
-
 const SearchResult = ({ name, distance, email }) => sanitize `
   <div class="nearby-volunteers-search-result">
     <address class="nearby-volunteers-search-result__contact-info">
