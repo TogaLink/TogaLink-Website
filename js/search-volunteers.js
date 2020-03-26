@@ -8,7 +8,7 @@ const SearchResult = ({ name, distance, email, phone }) => sanitize `
   <div class="nearby-volunteers-search-result">
     <address class="nearby-volunteers-search-result__contact-info">
       <center><h3 class="nearby-volunteers-search-result__name">${name}</h3></center>
-      <center><h4 class="nearby-volunteers-search-result__distance">${distance.toFixed(3)} miles away</h4></center>
+      <center><h4 class="nearby-volunteers-search-result__distance">${distance.toFixed(2)} miles away</h4></center>
       <center><h4 class="nearby-volunteers-search-result__email">${email}</h4></center>
       <center><h4 class="nearby-volunteers-search-result__phone">${phone}</h4></center>
     </address>
