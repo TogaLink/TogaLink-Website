@@ -1,109 +1,192 @@
+:root {
+    --primary-color: #be9e21;
+}
+
 #discussion {
-  display: none;
+    display: none;
 }
 
 #discussion .assistance-request-subject {
-  margin: auto;
-  border-color: #c0c0c0;
-  background: white;
-  color: rgb(95, 95, 95) !important;
-  margin-bottom: 1.5rem;
+    margin: auto;
+    border-color: #c0c0c0;
+    background: white;
+    color: rgb(95, 95, 95) !important;
+    margin-bottom: 1.5rem;
 }
 
 .disqus-container {
-  float: none;
+    float: none;
 }
 
 .discussion-line.bottom-line {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
 }
 
 .form-control {
-  resize: none;
+    resize: none;
 }
 
 #input {
-  height: 59rem;
+    height: 59rem;
 }
 
 @media screen and (max-width: 991px) {
-  #input {
-    height: auto;
-  }
+    #input {
+        height: auto;
+    }
 }
 
 #supporters {
-  height: auto;
+    height: auto;
 }
 
 .supporter-grid {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 @media screen and (max-width: 760px) {
-  .supporter-grid {
-    flex-direction: column;
-  }
+    .supporter-grid {
+        flex-direction: column;
+    }
 }
 
 @media screen and (max-width: 767px) and (min-width: 451px) {
-  .navbar-toggle.collapsed {
-    margin-right: 2.5rem;
-  }
-
-  .navbar-brand {
-    margin-left: 2.5rem;
-  }
+    .navbar-toggle.collapsed {
+        margin-right: 2.5rem;
+    }
+    .navbar-brand {
+        margin-left: 2.5rem;
+    }
 }
 
 .banner-info {
-  width: 86rem;
-  margin: auto;
+    width: 86rem;
+    margin: auto;
 }
 
 @media screen and (max-width: 991px) {
-  .banner-info {
-    width: 75rem;
-    margin: auto;
-  }
+    .banner-info {
+        width: 75rem;
+        margin: auto;
+    }
 }
 
 @media screen and (max-width: 785px) {
-  .banner-info {
-    width: 69rem;
-    margin: auto;
-  }
+    .banner-info {
+        width: 69rem;
+        margin: auto;
+    }
 }
 
 @media screen and (max-width: 730px) {
-  .banner-info .bnr-sub-title {
-    font-size: 3.3rem;
-  }
-
-  .banner-info {
-    width: 95vw;
-  }
+    .banner-info .bnr-sub-title {
+        font-size: 3.3rem;
+    }
+    .banner-info {
+        width: 95vw;
+    }
 }
 
 @media screen and (max-width: 450px) {
-  .banner-info {
-    margin-top: 15rem;
-  }
+    .banner-info {
+        margin-top: 15rem;
+    }
 }
 
 .team-pic {
-  margin: auto;
+    margin: auto;
 }
 
 @media screen and (max-width: 1200px) and (min-width: 991px) {
-  .mathew-pic {
-    padding-left: 7rem;
-  }
+    .mathew-pic {
+        padding-left: 7rem;
+    }
 }
 
-.credits-container > div:not(:first-child) {
-  margin-top: 1rem;
+.credits-container>div:not(:first-child) {
+    margin-top: 1rem;
+}
+
+.nearby-volunteers-list {
+    margin-bottom: -3rem;
+    margin-top: 2rem;
+    display: none;
+}
+
+.nearby-volunteers-list>div:not(:first-child):not(:last-child) {
+    margin: 2.5rem 0;
+}
+
+.nearby-volunteers-search-result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 0;
+    border: 0.1rem solid var(--primary-color);
+}
+
+.nearby-volunteers-search-result__avatar {
+    margin-left: 3.25rem;
+    margin-right: 1rem;
+    width: 12.5rem;
+    height: auto;
+}
+
+.nearby-volunteers-search-result__contact-info {
+    margin: 2rem;
+    text-align: left;
+}
+
+.nearby-volunteers-search-result__name {
+    margin-top: 1rem;
+}
+
+
+/* facebook-like loading spinner (got it from loading.io/css) */
+
+.lds-facebook {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.lds-facebook div {
+    display: inline-block;
+    position: absolute;
+    left: 8px;
+    width: 16px;
+    background: var(--primary-color);
+    animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+
+.lds-facebook div:nth-child(1) {
+    left: 8px;
+    animation-delay: -0.24s;
+}
+
+.lds-facebook div:nth-child(2) {
+    left: 32px;
+    animation-delay: -0.12s;
+}
+
+.lds-facebook div:nth-child(3) {
+    left: 56px;
+    animation-delay: 0;
+}
+
+@keyframes lds-facebook {
+    0% {
+        top: 8px;
+        height: 64px;
+    }
+    50%,
+    100% {
+        top: 24px;
+        height: 32px;
+    }
 }
