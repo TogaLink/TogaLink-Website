@@ -41,6 +41,11 @@ $("#formbutton2").click(async e => {
   location.reload();
 });
 
+$("#searchForm").submit(e => {
+  e.preventDefault();
+  search('#map2');
+});
+
 $("#searchbutton").click(e => {
   e.preventDefault();
   console.log('IN SUBMIT');
