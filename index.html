@@ -27,6 +27,9 @@
   <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.0.8/purify.min.js"></script>
+  <script type="text/javascript" src="js/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/geofire/5.0.1/geofire.min.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -120,6 +123,19 @@
               </form>
             </div>
           </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <div class="nearby-volunteers-list">
+              <div class="nearby-volunteers-loading-spinner lds-facebook">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <script src="js/map.js"></script>
@@ -252,6 +268,7 @@
           </div>
       </div>
       </form>
+    </div>
   </div>
   </section>
 
@@ -261,9 +278,6 @@
         <div class="col-md-12 text-center">
           <h2 class="service-title pad-bt15">Core team</h2>
           <hr class="bottom-line">
-        </div>
-        <div class="col-md-12 text-center"></div>
-        <div class="row">
           <div class="col-md-4 col-sm-6 col-xs-12 col-md-offset-2">
             <div class="blog-sec">
               <div class="team-pic blog-img">
@@ -403,7 +417,10 @@
   <script src="js/jquery.bxslider.min.js"></script>
   <script src="js/custom.js"></script>
   <script type="text/javascript" src="js/validate.js"></script>
+  <script type="text/javascript" src="js/sanitize.js"></script>
+  <script defer src="js/geocode.js"></script>
   <script defer src="js/form.js"></script>
+  <script defer src="js/search-volunteers.js"></script>
   <script src="js/resize-map-instructions.js"></script>
 </body>
 

@@ -1,62 +1,43 @@
-var ref = firebase.database().ref("markers");
-var ref2 = firebase.database().ref("volunteers");
-var submit = function (section) {
+const addToFirebase = async (ref, obj) => {
+  const { address } = obj;
+  const { lat, lng } = await toCoords(address);
+  const key = ref.push().key;
+  const geoFire = new geofire.GeoFire(ref)
+  await geoFire.set(`geo${key}`, [lat, lng]);
+
+  ref.child(key).set(obj);
+}
+
+var submit = async function (section) {
   var name = $(`${section} #name`).val();
   var email = $(`${section} #email`).val();
   var address = $(`${section} #address`).val();
   var subject = $(`${section} #subject`).val();
   var message = $(`${section} #message`).val();
 
-  ref.push({
-    "name": name,
-    "email": email,
-    "address": address,
-    "subject": subject,
-    "message": message
-  }).then(function (ref) {
-    console.log(ref.parent + "/" + ref.key);
-  })
-  .catch(function (error) {
-    console.log(error);
-  })
+  await addToFirebase(refMarkers, { name, email, address, subject, message });
 };
 
-var submit2 = function (section) {
+var submit2 = async function (section) {
   var name = $(`${section} #name2`).val();
   var email = $(`${section} #email2`).val();
   var address = $(`${section} #address2`).val();
   var phone = $(`${section} #phone`).val();
-
-  ref2.push({
-    "name": name,
-    "email": email,
-    "address": address,
-    "phone": phone,
-  }).then(function (ref) {
-    console.log(ref.parent + "/" + ref.key);
-  })
-  .catch(function (error) {
-    console.log(error);
-  })
+  
+  await addToFirebase(refVolunteers, { name, email, address, phone });
 };
 
-var search = function (section) {
-  // TODO: Finish
-  // Add new section with loaded results ordered by distance and go to that section
-};
-
-
-$("#formbutton").click(e => {
+$("#formbutton").click(async e => {
   e.preventDefault();
   console.log('IN SUBMIT');
-  submit('#input');
+  await submit('#input');
   location.reload();
 });
 
-$("#formbutton2").click(e => {
+$("#formbutton2").click(async e => {
   e.preventDefault();
   console.log('IN SUBMIT');
-  submit2('#input2');
+  await submit2('#input2');
   location.reload();
 });
 
