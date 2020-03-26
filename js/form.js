@@ -49,5 +49,7 @@ $("#searchForm").submit(e => {
 $("#searchbutton").click(e => {
   e.preventDefault();
   console.log('IN SUBMIT');
+  // $('.nearby-volunteers-list').show();
+  // $('.nearby-volunteers-loading-spinner').show();
   search('#map2');
 });
