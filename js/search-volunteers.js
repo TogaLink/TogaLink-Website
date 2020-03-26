@@ -3,8 +3,6 @@ const volunteersList = $('.nearby-volunteers-list');
 const searchResults = [];
 const loadingSpinner = $('.nearby-volunteers-loading-spinner');
 
-//     <img class="nearby-volunteers-search-result__avatar" src="//images.weserv.nl/?url=unavatar.now.sh/${email}&w=125&h=125&mask=circle">
-
 const SearchResult = ({ name, distance, email, phone }) => sanitize `
   <div class="nearby-volunteers-search-result">
     <address class="nearby-volunteers-search-result__contact-info">
@@ -14,6 +12,17 @@ const SearchResult = ({ name, distance, email, phone }) => sanitize `
     </address>
   </div> 
 `;
+
+const Kumar = () => sanitize `
+  <div class="nearby-volunteers-search-result">
+  <address class="nearby-volunteers-search-result__contact-info">
+    <center><h3 class="nearby-volunteers-search-result__name">No results found. Contact Rishi Kumar<br>
+    at <a href="mailto:Campaign@Rishi2020.com">Campaign@Rishi2020.com</a> if you would like a volunteer in your area.</h3></center>
+    <center><h4 class="nearby-volunteers-search-result__email">${email}</h4></center>
+    <center><h4 class="nearby-volunteers-search-result__distance">${distance.toFixed(2)} miles away from you</h4></center>
+  </address>
+  </div>
+`
 
 const kmToMi = km => km * 0.62137;
 const miToKm = mi => mi / 0.62137;
