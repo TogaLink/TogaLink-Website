@@ -111,9 +111,7 @@
 }
 
 .nearby-volunteers-list {
-  margin-bottom: -3rem;
   margin-top: 2rem;
-  display: none;
 }
 
 .nearby-volunteers-list > div:not(:first-child):not(:last-child) {
@@ -149,7 +147,7 @@
 
 .nearby-volunteers-loading-spinner.lds-facebook {
   display: none;
-  margin: 2rem -3.5rem auto;
+  margin: 2rem auto -3rem;
 }
 
 .lds-facebook {

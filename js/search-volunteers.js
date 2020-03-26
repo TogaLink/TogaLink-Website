@@ -24,7 +24,6 @@ const search = async section => {
     volunteersList.empty(); 
     searchResults.length = 0;
 
-    volunteersList.show();
     loadingSpinner.show();
 
     const address = $(`${section} #address3`).val();
@@ -42,7 +41,7 @@ const search = async section => {
       distance = kmToMi(distance);
 
       searchResults.push({ name, distance, email, phone });
-      searchResults.sort((a, b) => a.distance - b.distance)
+      searchResults.sort((a, b) => a.distance - b.distance);
     
       volunteersList.html(
         searchResults.map(SearchResult).join(''));
