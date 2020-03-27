@@ -20,14 +20,14 @@ const SearchResult = ({ name, distance, email }) => sanitize`
 `;
 
 const SearchError = err => sanitize`
-  <div class="nearby-volunteers-search-error">${err.message}</div>
+  <div class="nearby-volunteers-search-error col-md-6 col-md-offset-3">${err.message}</div>
 `;
 
-const NoVolunteersError = () => SearchError`
+const NoVolunteersError = () => SearchError(Error(`
   No nearby volunteers found. Please contact Rishi Kumar at 
   <a href="mailto:Campaign@Rishi2020.com">Campaign@Rishi2020.com</a> 
   if you would like to request a volunteer in your area.
-`
+`));
 
 const kmToMi = km => km * 0.62137;
 const miToKm = mi => mi / 0.62137;
