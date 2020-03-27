@@ -21,7 +21,7 @@ exports.onMarkerCreate = functions.database.ref('/markers/{postId}').onCreate((s
         to: 'campaign@rishi2020.com',
         from: 'info@togalink.org',
         replyTo: email,
-        subject: `[TogaLink] COVIDcare: ${name} needs your help!`,
+        subject: `[TogaLink] ${name} needs your help!`,
         text: 'Please view in html',
         html: `${name} (${email}) has placed a marker at ${address}.
     <br><br>
