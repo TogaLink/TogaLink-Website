@@ -6,7 +6,7 @@ const loadingSpinner = $('.nearby-volunteers-loading-spinner');
 // hide error message on next change of the address input field
 let hideOnNextExit = false;
 
-// workaround because ready may fire before key_entered (since fetching Firebase takes time)
+// workaround because 'ready' may fire before 'key_entered' (since fetching Firebase takes time)
 let noResults = true;
 
 const SearchResult = ({ name, distance, email }) => sanitize`
