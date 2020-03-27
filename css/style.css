@@ -104,6 +104,11 @@ img {
     background-color: #F3F4F8;
 }
 
+#inputt {
+    height: 650px;
+    /* background-color: #F3F4F8; */
+}
+
 #loader {
     position: absolute;
     left: 50%;
@@ -400,6 +405,14 @@ h2.bnr-sub-title {
 }
 
 #team {
+    background-color: #F3F4F8;
+}
+
+#searchvol {
+    background-color: #F3F4F8;
+}
+
+#link {
     background-color: #F3F4F8;
 }
 
