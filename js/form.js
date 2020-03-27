@@ -34,6 +34,13 @@ $("#formbutton").click(async e => {
     location.reload();
 });
 
+$("#formbuttonE").click(async e => {
+    e.preventDefault();
+    console.log('IN SUBMIT');
+    await submit('#inputt');
+    location.reload();
+});
+
 $("#formbutton2").click(async e => {
     e.preventDefault();
     console.log('IN SUBMIT');
