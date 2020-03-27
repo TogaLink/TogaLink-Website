@@ -8,7 +8,7 @@ const toCoords = async address => {
   if (err?.response?.status === 400) { // the form was empty
     throw new Error("The address field cannot be empty");
   } else if (response?.data?.results?.length === 0) {
-    throw new Error("The address was not found");
+    throw new Error("The specified address was not found");
   }
   return response.data.results[0].geometry.location;
 };
