@@ -15,7 +15,7 @@ const SearchResult = ({ name, distance, email }) => sanitize`
     <address class="nearby-volunteers-search-result__contact-info">
       <center><h3 class="nearby-volunteers-search-result__name">${name}</h3></center>
       <center><h4 class="nearby-volunteers-search-result__email">${email}</h4></center>
-      <center><h4 class="nearby-volunteers-search-result__distance">${distance.toFixed(2)} miles away from you</h4></center>
+      <center><h4 class="nearby-volunteers-search-result__distance">${distance.toFixed(2)} miles away</h4></center>
     </address>
   </div> 
 `;
