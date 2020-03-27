@@ -2,6 +2,7 @@ const geoFireVolunteers = new geofire.GeoFire(refVolunteers);
 const volunteersList = $('.nearby-volunteers-list');
 const searchResults = []; // object representation of volunteersList DOM elements
 const loadingSpinner = $('.nearby-volunteers-loading-spinner');
+const RADIUS = 0.5; // hard-coded radius of geoquery
 
 // hide error message on next change of the address input field
 let hideOnNextExit = false;
@@ -58,7 +59,7 @@ const search = async section => {
 
     const { lat, lng } = coords;
     const center = [lat, lng];
-    const radius = miToKm(0.5); // geofire uses km
+    const radius = miToKm(RADIUS); // geofire uses km
 
     const geoQuery = geoFireVolunteers.query({ center, radius });
 
