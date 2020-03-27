@@ -5,7 +5,7 @@ const toCoords = async address => {
       key: 'AIzaSyCUmA1jvhKOYygqrQMVJi8IJmXuW496HGk'
     }
   }));
-  if (err?.response?.status === 400) { // the form was empty
+  if (err?.response?.status === 400) { // address was empty
     throw new Error("The address field cannot be empty");
   } else if (response?.data?.results?.length === 0) {
     throw new Error("The specified address was not found");

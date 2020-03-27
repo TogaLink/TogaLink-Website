@@ -2,11 +2,12 @@ const geoFireVolunteers = new geofire.GeoFire(refVolunteers);
 const volunteersList = $('.nearby-volunteers-list');
 const searchResults = []; // object representation of volunteersList DOM elements
 const loadingSpinner = $('.nearby-volunteers-loading-spinner');
+const RADIUS = 0.5; // hard-coded radius of geoquery
 
 // hide error message on next change of the address input field
 let hideOnNextExit = false;
 
-// workaround because ready may fire before key_entered (since fetching Firebase takes time)
+// workaround because 'ready' may fire before 'key_entered' (since fetching Firebase takes time)
 let noResults = true;
 
 const SearchResult = ({ name, distance, email }) => sanitize`
@@ -14,7 +15,7 @@ const SearchResult = ({ name, distance, email }) => sanitize`
     <address class="nearby-volunteers-search-result__contact-info">
       <center><h3 class="nearby-volunteers-search-result__name">${name}</h3></center>
       <center><h4 class="nearby-volunteers-search-result__email">${email}</h4></center>
-      <center><h4 class="nearby-volunteers-search-result__distance">${distance.toFixed(2)} miles away from you</h4></center>
+      <center><h4 class="nearby-volunteers-search-result__distance">${distance.toFixed(2)} miles away</h4></center>
     </address>
   </div> 
 `;
@@ -58,7 +59,7 @@ const search = async section => {
 
     const { lat, lng } = coords;
     const center = [lat, lng];
-    const radius = miToKm(0.5); // geofire uses km
+    const radius = miToKm(RADIUS); // geofire uses km
 
     const geoQuery = geoFireVolunteers.query({ center, radius });
 
