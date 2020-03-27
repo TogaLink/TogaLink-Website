@@ -721,6 +721,10 @@ figure.hover figcaption {
     background-color: rgb(73, 84, 105);
 }
 
+#footer2 {
+    background-color: rgb(73, 84, 105);
+}
+
 .btn-submit,
 .btn-submit:hover,
 .btn-submit:focus {
@@ -797,6 +801,10 @@ figure.hover figcaption {
     padding: 20px 0px;
 }
 
+#footer2 {
+    padding: 20px 0px;
+}
+
 .scrollToTop {
     position: fixed;
     bottom: 12px;
@@ -817,7 +825,22 @@ figure.hover figcaption {
     background-color: #fff;
 }
 
+#footer2 h4 {
+    color: white;
+    font-weight: 400;
+}
+
+#footer2 p {
+    color: white;
+    font-weight: 400;
+}
+
 #footer a {
+    color: #be9e21;
+    font-weight: 400;
+}
+
+#footer2 a {
     color: #be9e21;
     font-weight: 400;
 }
