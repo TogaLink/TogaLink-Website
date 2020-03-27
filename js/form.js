@@ -63,7 +63,13 @@ $("#searchbutton").click(e => {
 
 $("#searchForm2").submit(e => {
     e.preventDefault();
-    search('#searchvol');
+    const val = $(`${'#searchvol'} #address3`).val();
+    if (val.indexOf(",") != -1 && val.indexOf(",", val.indexOf(",") + 1) != -1) {
+        document.getElementById("demo").innerHTML = " ";
+        search('#searchvol');
+    } else {
+        document.getElementById("demo").innerHTML = "Please enter address in the format specified above.";
+    }
 });
 
 $("#searchbutton2").click(e => {
@@ -71,5 +77,11 @@ $("#searchbutton2").click(e => {
     console.log('IN SUBMIT');
     // $('.nearby-volunteers-list').show();
     // $('.nearby-volunteers-loading-spinner').show();
-    search('#searchvol');
+    const val = $(`${'#searchvol'} #address3`).val();
+    if (val.indexOf(",") != -1 && val.indexOf(",", val.indexOf(",") + 1) != -1) {
+        document.getElementById("demo").innerHTML = " ";
+        search('#searchvol');
+    } else {
+        document.getElementById("demo").innerHTML = "Please enter address in the format specified above.";
+    }
 });
