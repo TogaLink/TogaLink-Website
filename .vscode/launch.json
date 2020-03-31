@@ -10,7 +10,7 @@
       "request": "attach",
       "port": 9000,
       "url": "http://localhost:8080/*",
-      "webRoot": "${workspaceFolder}"
+      "webRoot": "${workspaceRoot}"
     },
     {
       "name": "Launch localhost",
