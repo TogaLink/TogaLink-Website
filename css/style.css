@@ -586,6 +586,7 @@ figure.hover figcaption {
 }
 
 #testimonial {
+    /* bg.jpg has been removed on the assumption that testimonials are no longer used */
     background: url('../img/bg.jpg') no-repeat;
     background-size: cover;
     min-height: 390px;
