@@ -2,7 +2,7 @@
   "name": "togalink",
   "version": "1.0.0",
   "description": "Linking the Saratoga community to overcome COVID-19",
-  "main": "index.js",
+  "main": "index.html",
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
