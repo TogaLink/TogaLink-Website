@@ -1,0 +1,68 @@
+{
+  "name": "togalink",
+  "version": "1.0.0",
+  "description": "Linking the Saratoga community to overcome COVID-19",
+  "main": "index.html",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-prettier": "^3.1.2",
+    "filesize": "^6.1.0",
+    "fs": "0.0.1-security",
+    "glob": "^7.1.6",
+    "html-minifier": "^4.0.0",
+    "postcss-cli": "^7.1.0",
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "^2.0.2",
+    "rimraf": "^3.0.2",
+    "servor": "^3.2.0",
+    "terser": "^4.6.10"
+  },
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "npm run build:js && npm run build:css && npm run minify",
+    "build:css": "postcss css/ -d dist/css",
+    "build:css:watch": "postcss css/ -d dist/css -w --map",
+    "build:js": "babel js/ -d dist/js",
+    "build:js:watch": "babel js/ -d dist/js -w --source-maps",
+    "minify": "node minify.js js html",
+    "predev": "rimraf dist",
+    "dev": "npm run build:js:watch & npm run build:css:watch & servor --reload"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TogaLink/TogaLink-Website.git"
+  },
+  "keywords": [
+    "COVID-19",
+    "support",
+    "volunteer",
+    "to",
+    "help",
+    "seniors",
+    "Saratoga",
+    "community",
+    "help",
+    "Saratogan",
+    "seniors",
+    "get",
+    "groceries",
+    "Saratoga",
+    "COVID-19",
+    "response"
+  ],
+  "author": "TogaLink Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TogaLink/TogaLink-Website/issues"
+  },
+  "homepage": "https://github.com/TogaLink/TogaLink-Website#readme",
+  "browserslist": [
+    "defaults"
+  ]
+}

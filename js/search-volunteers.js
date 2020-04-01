@@ -55,7 +55,7 @@ const search = async section => {
       volunteersList.html(SearchError(err));
       hideOnNextExit = true;
       return;
-    };
+    }
 
     const { lat, lng } = coords;
     const center = [lat, lng];
