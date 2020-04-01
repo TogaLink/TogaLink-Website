@@ -109,7 +109,7 @@ function initMap() {
                 position: response.data.results[0].geometry.location,
                 map,
                 icon: {
-                    url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+                    url: "https://maps.google.com/mapfiles/ms/icons/blue-dot.png"
                 }
             });
             marker.addListener('click', () => {
