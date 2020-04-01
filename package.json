@@ -11,12 +11,13 @@
     "postcss-preset-env": "^6.7.0"
   },
   "scripts": {
-    "build": "npm run build:js && npm run build:esm && npm run copy",
-    "build:js": "babel src/ -d dist",
-    "build:js:watch": "babel src/ -d dist --watch",
-    "build:esm": "snowpack --include \"dist/**/*.js\" --dest dist/web_modules",
-    "copy": "cpx index.html ./dist",
-    "dev": "npm run build && npm run build:js:watch & serve -s dist"
+    "build": "npm run build:js && npm run build:css && npm run minify",
+    "build:css": "postcss css/ -d dist/css",
+    "build:css:watch": "postcss css/ -d dist/css -w",
+    "build:js": "babel js/ -d dist/js",
+    "build:js:watch": "babel src/ -d dist -w",
+    "minify": "node minify.js js html",
+    "dev": "npm run build:js:watch & npm run build:css:watch & servor --reload"
   },
   "repository": {
     "type": "git",
