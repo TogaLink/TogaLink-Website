@@ -21,9 +21,9 @@
     "prebuild": "rimraf dist",
     "build": "npm run build:js && npm run build:css && npm run minify",
     "build:css": "postcss css/ -d dist/css",
-    "build:css:watch": "postcss css/ -d dist/css -w",
+    "build:css:watch": "postcss css/ -d dist/css -w --map",
     "build:js": "babel js/ -d dist/js",
-    "build:js:watch": "babel js/ -d dist -w",
+    "build:js:watch": "babel js/ -d dist/js -w --source-maps",
     "minify": "node minify.js js html",
     "predev": "rimraf dist",
     "dev": "npm run build:js:watch & npm run build:css:watch & servor --reload"
