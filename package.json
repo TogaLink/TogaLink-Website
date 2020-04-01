@@ -4,10 +4,16 @@
   "description": "Linking the Saratoga community to overcome COVID-19",
   "main": "index.js",
   "devDependencies": {
-    "snowpack": "^1.6.0"
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run build:js && npm run build:esm && npm run copy",
+    "build:js": "babel src/ -d dist",
+    "build:js:watch": "babel src/ -d dist --watch",
+    "build:esm": "snowpack --include \"dist/**/*.js\" --dest dist/web_modules",
+    "copy": "cpx index.html ./dist",
+    "dev": "npm run build && npm run build:js:watch & serve -s dist"
   },
   "repository": {
     "type": "git",
@@ -36,5 +42,8 @@
   "bugs": {
     "url": "https://github.com/TogaLink/TogaLink-Website/issues"
   },
-  "homepage": "https://github.com/TogaLink/TogaLink-Website#readme"
+  "homepage": "https://github.com/TogaLink/TogaLink-Website#readme",
+  "browserslist": [
+    "defaults"
+  ]
 }
