@@ -2,3 +2,7 @@
 
 # Redirect default Netlify subdomain to primary domain
 https://togalink.netlify.com/* https://togalink.org/:splat 301!
+
+# Redirect covid19saratoga.com to togalink.org
+https://www.covid19saratoga.com/* https://togalink.org/:splat 301!
+https://covid19saratoga.com/* https://togalink.org/:splat 301!
