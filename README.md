@@ -2,7 +2,24 @@
 
 # [TogaLink](https://togalink.org/)
 
-*The landing site for TogaLink, in partnership with the City of Saratoga. In use by the San Mateo, Santa Cruz, and Santa Clara Counties.*
+*The landing site for TogaLink, an app to link seniors in need to volunteers, in response to COVID-19. In use by the San Mateo, Santa Cruz, and Santa Clara Counties.*
+
+Usage
+
+To set up:
+
+0. Download the latest git and LTS of Node.js from [here](https://git-scm.com/downloads) and [here](https://nodejs.org/en/download/), respectively.
+1. `git clone https://github.com/TogaLink/TogaLink-Website`
+2. `cd Toga-Hacks-Website`
+3. `npm i`
+
+To run the live server:
+
+    npm run dev
+
+To make the production build:
+
+    npm run build
 
 # Git workflow
 
