@@ -7,17 +7,25 @@
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
+    "filesize": "^6.1.0",
+    "fs": "0.0.1-security",
+    "glob": "^7.1.6",
+    "html-minifier": "^4.0.0",
     "postcss-cli": "^7.1.0",
     "postcss-preset-env": "^6.7.0",
-    "servor": "^3.2.0"
+    "rimraf": "^3.0.2",
+    "servor": "^3.2.0",
+    "terser": "^4.6.10"
   },
   "scripts": {
+    "prebuild": "rimraf dist",
     "build": "npm run build:js && npm run build:css && npm run minify",
     "build:css": "postcss css/ -d dist/css",
     "build:css:watch": "postcss css/ -d dist/css -w",
     "build:js": "babel js/ -d dist/js",
-    "build:js:watch": "babel src/ -d dist -w",
+    "build:js:watch": "babel js/ -d dist -w",
     "minify": "node minify.js js html",
+    "predev": "rimraf dist",
     "dev": "npm run build:js:watch & npm run build:css:watch & servor --reload"
   },
   "repository": {
