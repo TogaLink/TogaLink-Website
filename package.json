@@ -1,0 +1,40 @@
+{
+  "name": "togalink",
+  "version": "1.0.0",
+  "description": "Linking the Saratoga community to overcome COVID-19",
+  "main": "index.js",
+  "devDependencies": {
+    "snowpack": "^1.6.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TogaLink/TogaLink-Website.git"
+  },
+  "keywords": [
+    "COVID-19",
+    "support",
+    "volunteer",
+    "to",
+    "help",
+    "seniors",
+    "Saratoga",
+    "community",
+    "help",
+    "Saratogan",
+    "seniors",
+    "get",
+    "groceries",
+    "Saratoga",
+    "COVID-19",
+    "response"
+  ],
+  "author": "TogaLink Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TogaLink/TogaLink-Website/issues"
+  },
+  "homepage": "https://github.com/TogaLink/TogaLink-Website#readme"
+}
