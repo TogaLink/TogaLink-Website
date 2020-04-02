@@ -9,7 +9,7 @@
       "type": "firefox",
       "request": "launch",
       "reAttach": true,
-      "url": "http://localhost:5000/index.html",
+      "url": "http://localhost:8080/index.html",
       "webRoot": "${workspaceFolder}"
     },
     {

@@ -29,7 +29,7 @@ function initMap() {
             const response = await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
                 params: {
                     address,
-                    key: 'AIzaSyCUmA1jvhKOYygqrQMVJi8IJmXuW496HGk'
+                    key: 'AIzaSyA_dytFo9oJyKaVjTd9k93YdZgLjtC3T2I'
                 }
             })
             const marker = new google.maps.Marker({
@@ -102,7 +102,7 @@ function initMap() {
             const response = await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
                 params: {
                     address,
-                    key: 'AIzaSyCUmA1jvhKOYygqrQMVJi8IJmXuW496HGk'
+                    key: 'AIzaSyA_dytFo9oJyKaVjTd9k93YdZgLjtC3T2I'
                 }
             })
             const marker = new google.maps.Marker({
