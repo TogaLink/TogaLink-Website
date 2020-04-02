@@ -114,7 +114,7 @@ function initMap() {
             });
             marker.addListener('click', () => {
                 const markerRef = k;
-                const { name, email, phone } = val[markerRef];
+                const { name, email } = val[markerRef];
                 var infowindow = new google.maps.InfoWindow({
                     content: "Name: " + name + ", Email: " + email,
                 });
