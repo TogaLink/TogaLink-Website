@@ -1,14 +1,23 @@
-const toCoords = async address => {
-  const [response, err] = await handle(axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
-    params: {
-      address,
-      key: 'AIzaSyA_dytFo9oJyKaVjTd9k93YdZgLjtC3T2I'
+let geocoder;
+
+// need to wait until the Google Maps library finishes loading
+$(document).ready(() => geocoder = new google.maps.Geocoder());
+
+const geocode = address => new Promise((accept, reject) => {
+  geocoder.geocode({address}, (result, status) => {
+    if (status === 'OK') {
+      accept(result);
     }
-  }));
-  if (err?.response?.status === 400) { // address was empty
-    throw new Error("The address field cannot be empty");
-  } else if (response?.data?.results?.length === 0) {
+    reject(status);
+  })
+});
+
+const toCoords = async address => {
+  const [response, err] = await handle(geocode(address));
+  if (err === "ZERO_RESULTS") { // address was empty
+    throw new Error("The inputted address cannot be empty");
+  } else if (response?.length === 0) {
     throw new Error("The specified address was not found");
   }
-  return response.data.results[0].geometry.location;
+  return response[0].geometry.location;
 };

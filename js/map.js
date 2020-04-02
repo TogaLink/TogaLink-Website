@@ -26,14 +26,9 @@ function initMap() {
             while (address.indexOf(" ") != -1) {
                 address = address.replace(" ", "+");
             }
-            const response = await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
-                params: {
-                    address,
-                    key: 'AIzaSyA_dytFo9oJyKaVjTd9k93YdZgLjtC3T2I'
-                }
-            })
+            const position = await toCoords(address);
             const marker = new google.maps.Marker({
-                position: response.data.results[0].geometry.location,
+                position,
                 map,
             });
             marker.addListener('click', () => {
@@ -99,14 +94,9 @@ function initMap() {
             while (address.indexOf(" ") != -1) {
                 address = address.replace(" ", "+");
             }
-            const response = await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
-                params: {
-                    address,
-                    key: 'AIzaSyA_dytFo9oJyKaVjTd9k93YdZgLjtC3T2I'
-                }
-            })
+            const position = await toCoords(address);
             const marker = new google.maps.Marker({
-                position: response.data.results[0].geometry.location,
+                position,
                 map,
                 icon: {
                     url: "https://maps.google.com/mapfiles/ms/icons/blue-dot.png"
