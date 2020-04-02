@@ -1,44 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>A Basic Map</title>
-	<style>
-		#map {
-			height: 90%;
-		}
-		/* Optional: Makes the sample page fill the window. */
-		html, body {
-			position: relative;
-			top: 60px;
-			height: 100%;
-			margin: 0;
-			padding: 0;
-            background-color: #F3F4F8;
-		}
-	</style>
-	<script>
-	function initMap() {
-		var mapOptions = {
-            zoom: 8,
-            center: new google.maps.LatLng(37.5, -122),
-            mapTypeId: 'roadmap'
-	    };
-	    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-	    var goldenGatePosition = {lat: 37.8199,lng: -122.4783};
-	    var marker = new google.maps.Marker({
-			position: goldenGatePosition,
-			map: map,
-			title: 'Golden Gate Bridge'
-		});
-	}
-	</script>
+<head>
+    <meta charset="UTF-8">
+    <title>A Basic Map</title>
+    <style>
+        #map {
+            height: 90%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        
+        html,
+        body {
+            position: relative;
+            top: 60px;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #F3F4F8;
+        }
+    </style>
+    <script>
+        function initMap() {
+            var mapOptions = {
+                zoom: 8,
+                center: new google.maps.LatLng(37.5, -122),
+                mapTypeId: 'roadmap'
+            };
+            var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+        }
+    </script>
 </head>
+
 <body>
-<div id="map"></div>
-<script async defer
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCADwgj60fTA1h9xzh_lKlelsxH5OFMFw&callback=initMap" type="text/javascript">
-</script>
+    <div id="map"></div>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCADwgj60fTA1h9xzh_lKlelsxH5OFMFw&callback=initMap" type="text/javascript">
+    </script>
 </body>
+
 </html>
