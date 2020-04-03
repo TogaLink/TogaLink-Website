@@ -24,7 +24,7 @@ const toCoords = async(address) => {
     if (err === 'ZERO_RESULTS') {
         // address was empty
         throw new Error('The inputted address cannot be empty');
-    } else if (response ? .length === 0) {
+    } else if (response?.length === 0) {
         throw new Error('The specified address was not found');
     }
     return response[0].geometry.location;
