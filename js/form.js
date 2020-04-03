@@ -1,20 +1,20 @@
-const addToFirebase = async(ref, obj) => {
-    const { address } = obj;
-    const { lat, lng } = await toCoords(address);
-    const { key } = ref.push(obj);
-    
-    const geoFire = new geofire.GeoFire(ref)
-    await geoFire.set(`geo${key}`, [lat(), lng()]);
-}
+const addToFirebase = async (ref, obj) => {
+  const { address } = obj;
+  const { lat, lng } = await toCoords(address);
+  const { key } = ref.push(obj);
 
-var submit = async function(section) {
-    var name = $(`${section} #name`).val();
-    var email = $(`${section} #email`).val();
-    var address = $(`${section} #address`).val();
-    var subject = $(`${section} #subject`).val();
-    var message = $(`${section} #message`).val();
+  const geoFire = new geofire.GeoFire(ref);
+  await geoFire.set(`geo${key}`, [lat(), lng()]);
+};
 
-    await addToFirebase(refMarkers, { name, email, address, subject, message });
+const submit = async function (section) {
+  const name = $(`${section} #name`).val();
+  const email = $(`${section} #email`).val();
+  const address = $(`${section} #address`).val();
+  const subject = $(`${section} #subject`).val();
+  const message = $(`${section} #message`).val();
+
+  await addToFirebase(refMarkers, { name, email, address, subject, message });
 };
 
 const submit2 = async function (section) {
