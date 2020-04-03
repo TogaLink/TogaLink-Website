@@ -1,11 +1,10 @@
 const addToFirebase = async(ref, obj) => {
     const { address } = obj;
     const { lat, lng } = await toCoords(address);
-    const key = ref.push().key;
+    const { key } = ref.push(obj);
+    
     const geoFire = new geofire.GeoFire(ref)
-    await geoFire.set(`geo${key}`, [lat, lng]);
-
-    ref.child(key).set(obj);
+    await geoFire.set(`geo${key}`, [lat(), lng()]);
 }
 
 var submit = async function(section) {

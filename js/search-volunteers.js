@@ -58,7 +58,7 @@ const search = async section => {
     }
 
     const { lat, lng } = coords;
-    const center = [lat, lng];
+    const center = [lat(), lng()];
     const radius = miToKm(RADIUS); // geofire uses km
 
     const geoQuery = geoFireVolunteers.query({ center, radius });
