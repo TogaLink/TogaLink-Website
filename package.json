@@ -17,6 +17,8 @@
     "fs": "0.0.1-security",
     "glob": "^7.1.6",
     "html-minifier": "^4.0.0",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.1.1",
     "postcss-cli": "^7.1.0",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.0.2",
@@ -33,7 +35,19 @@
     "build:js:watch": "babel js/ -d dist/js -w --source-maps",
     "minify": "node minify.js js html",
     "predev": "rimraf dist",
-    "dev": "npm run build:js:watch & npm run build:css:watch & servor --reload"
+    "dev": "npm run build:js:watch & npm run build:css:watch & servor --reload",
+    "lint": "eslint --fix minify.js js/**; npm --prefix functions run lint; prettier --write --parser json .*rc; prettier --write *.html *.json css/**"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*": [
+      "npm run lint",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
