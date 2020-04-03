@@ -31,7 +31,7 @@ exports.onMarkerCreate = functions.database
     }
 
     const msg = {
-        to: 'team@togalink.org', // TODO: change to campaign@rishi2020.com
+      to: 'team@togalink.org', // TODO: change to campaign@rishi2020.com
       from: 'info@togalink.org',
       replyTo: email,
       subject: `[TogaLink] ${name} needs your help!`,
