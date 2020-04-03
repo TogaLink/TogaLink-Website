@@ -86,7 +86,6 @@ function initMap() {
         continue;
       }
       let { address } = val[k];
-      const titleFirebase = val[k].subject;
       console.log(address, k);
       while (address.indexOf(' ') != -1) {
         address = address.replace(' ', '+');
