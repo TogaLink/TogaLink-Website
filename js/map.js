@@ -26,14 +26,9 @@ function initMap() {
             while (address.indexOf(" ") != -1) {
                 address = address.replace(" ", "+");
             }
-            const response = await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
-                params: {
-                    address,
-                    key: 'AIzaSyCUmA1jvhKOYygqrQMVJi8IJmXuW496HGk'
-                }
-            })
+            const position = await toCoords(address);
             const marker = new google.maps.Marker({
-                position: response.data.results[0].geometry.location,
+                position,
                 map,
             });
             marker.addListener('click', () => {
@@ -99,14 +94,9 @@ function initMap() {
             while (address.indexOf(" ") != -1) {
                 address = address.replace(" ", "+");
             }
-            const response = await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
-                params: {
-                    address,
-                    key: 'AIzaSyCUmA1jvhKOYygqrQMVJi8IJmXuW496HGk'
-                }
-            })
+            const position = await toCoords(address);
             const marker = new google.maps.Marker({
-                position: response.data.results[0].geometry.location,
+                position,
                 map,
                 icon: {
                     url: "https://maps.google.com/mapfiles/ms/icons/blue-dot.png"
@@ -114,7 +104,7 @@ function initMap() {
             });
             marker.addListener('click', () => {
                 const markerRef = k;
-                const { name, email, phone } = val[markerRef];
+                const { name, email } = val[markerRef];
                 var infowindow = new google.maps.InfoWindow({
                     content: "Name: " + name + ", Email: " + email,
                 });
