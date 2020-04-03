@@ -1,5 +1,5 @@
 /**
- * @description ### Returns Go / Lua like responses(data, err) 
+ * @description ### Returns Go / Lua like responses(data, err)
  * when used with await
  *
  * - Example response [ data, undefined ]
@@ -21,6 +21,6 @@
  */
 const handle = (promise) => {
   return promise
-    .then(data => ([data, undefined]))
-    .catch(error => Promise.resolve([undefined, error]));
-}
+    .then((data) => [data, undefined])
+    .catch((error) => Promise.resolve([undefined, error]));
+};

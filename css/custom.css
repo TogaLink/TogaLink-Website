@@ -144,14 +144,14 @@
 }
 
 .nearby-volunteers-search-error {
-    display: inline-block;
-    max-width: 100%;
-    margin-bottom: 5px;
-    font-weight: 700;    
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: 700;
 }
 
 label.error {
-    padding-top: 1.125rem;
+  padding-top: 1.125rem;
 }
 
 /* facebook-like loading spinner (got it from loading.io/css) */
