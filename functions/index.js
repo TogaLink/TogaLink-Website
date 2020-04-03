@@ -18,13 +18,15 @@ sgMail.setApiKey(config.sendgrid.key);
 exports.onMarkerCreate = functions.database.ref('/markers/{postId}').onCreate((snapshot, _) => {
     const { name, email, address, subject, message } = snapshot.val();
 
+    // TODO: automatically bail if the new doc id starts with 'geo'
+
     // return null if any fields are falsy
     if (!name && !email && !address && !subject && !message) {
         return null;
     }
 
     const msg = {
-        to: 'campaign@rishi2020.com',
+        to: 'team@togalink.org', // TODO: change to campaign@rishi2020.com
         from: 'info@togalink.org',
         replyTo: email,
         subject: `[TogaLink] ${name} needs your help!`,
