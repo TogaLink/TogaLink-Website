@@ -36,7 +36,7 @@
     "minify": "node minify.js js html",
     "predev": "rimraf dist",
     "dev": "npm run build:js:watch & npm run build:css:watch & servor --reload",
-    "lint": "eslint --fix js/**; npm --prefix functions run lint; prettier --write --parser json .*rc; prettier --write *.html *.json css/**"
+    "lint": "eslint --fix minify.js js/**; npm --prefix functions run lint; prettier --write --parser json .*rc; prettier --write *.html *.json css/**"
   },
   "husky": {
     "hooks": {
@@ -44,7 +44,7 @@
     }
   },
   "lint-staged": {
-    "*.js": [
+    "*": [
       "npm run lint",
       "git add"
     ]
