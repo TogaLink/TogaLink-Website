@@ -5,19 +5,19 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch localhost",
-      "type": "firefox",
+      "type": "chrome",
       "request": "launch",
-      "reAttach": true,
-      "url": "http://localhost:8080/index.html",
+      "name": "Launch Chrome",
+      "url": "http://localhost:8080",
       "webRoot": "${workspaceFolder}"
     },
     {
-      "name": "Launch index.html",
       "type": "firefox",
       "request": "launch",
+      "name": "Launch firefox",
       "reAttach": true,
-      "file": "${workspaceFolder}/index.html"
+      "url": "http://localhost:8080/index.html",
+      "webRoot": "${workspaceFolder}"
     }
   ]
 }
