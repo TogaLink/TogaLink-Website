@@ -22,7 +22,7 @@
     {
       "type": "chrome",
       "request": "attach",
-      "name": "iOS Web with Chrome",
+      "name": "iOS Web with Chrome", // to use this configuration, see: https://github.com/RemoteDebug/remotedebug-ios-webkit-adapter#getting-started
       "port": 9000,
       "webRoot": "${workspaceRoot}"
     }
