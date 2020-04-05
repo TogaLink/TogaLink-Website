@@ -8,7 +8,7 @@ function initMap() {
   };
   const map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-  refMarkers.once('value', async function (snapshot) {
+  refMarkers.once('value', async (snapshot) => {
     if (!snapshot.exists()) {
       return;
     }
@@ -57,7 +57,7 @@ function initMap() {
           location.hash = 'discussionContainer';
         }, 1000);
       });
-      marker.addListener('dblclick', async function () {
+      marker.addListener('dblclick', async () => {
         if (confirm('Are you sure you want to delete this marker?')) {
           console.log(k);
           console.log(refMarkers.child(k));
@@ -73,7 +73,7 @@ function initMap() {
     }
   });
 
-  refVolunteers.once('value', async function (snapshot) {
+  refVolunteers.once('value', async (snapshot) => {
     if (!snapshot.exists()) {
       return;
     }

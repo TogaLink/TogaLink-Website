@@ -7,7 +7,7 @@ const addToFirebase = async (ref, obj) => {
   await geoFire.set(`geo${key}`, [lat(), lng()]);
 };
 
-const submit = async function (section) {
+const submit = async (section) => {
   const name = $(`${section} #name`).val();
   const email = $(`${section} #email`).val();
   const address = $(`${section} #address`).val();
@@ -17,7 +17,7 @@ const submit = async function (section) {
   await addToFirebase(refMarkers, { name, email, address, subject, message });
 };
 
-const submit2 = async function (section) {
+const submit2 = async (section) => {
   const name = $(`${section} #name2`).val();
   const email = $(`${section} #email2`).val();
   const address = $(`${section} #address2`).val();
