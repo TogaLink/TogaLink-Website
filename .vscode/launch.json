@@ -24,15 +24,6 @@
       "request": "attach",
       "name": "iOS Web with Chrome",
       "port": 9000,
-      "url": "http://localhost:8080/*",
-      "webRoot": "${workspaceRoot}"
-    },
-    {
-      "type": "firefox",
-      "request": "attach",
-      "name": "iOS Web with Firefox",
-      "port": 9000,
-      "url": "http://localhost:8080/*",
       "webRoot": "${workspaceRoot}"
     }
   ]
