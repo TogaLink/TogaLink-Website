@@ -1,7 +1,9 @@
 let geocoder;
 
 // need to wait until the Google Maps library finishes loading
-$(document).ready(() => (geocoder = new google.maps.Geocoder()));
+$(document).ready(() => {
+  geocoder = new google.maps.Geocoder();
+});
 
 const geocode = (address) =>
   new Promise((accept, reject) => {
