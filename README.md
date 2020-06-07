@@ -2,7 +2,7 @@
 
 # [TogaLink](https://togalink.org/)
 
-*The landing site for TogaLink, an app to link seniors in need to volunteers, in response to COVID-19. In use by the San Mateo, Santa Cruz, and Santa Clara Counties.*
+*The landing site for TogaLink, a web app that links users in need of help to local volunteers. A community-powered response to the COVID-19 pandemic. In use by the San Mateo, Santa Cruz, and Santa Clara Counties.*
 
 Usage
 
@@ -21,7 +21,7 @@ To make the production build:
 
     npm run build
 
-# Git workflow
+# Git Workflow
 
 1. For a new bug fix or feature idea, add it to the To-Do column of the project board.
 2. When you can work on it, move it to In Progress, convert it to an issue, and self assign it.
