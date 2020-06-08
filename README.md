@@ -4,7 +4,7 @@
 
 *The landing site for TogaLink, a web app that links users in need of help to local volunteers. A community-powered response to the COVID-19 pandemic. In use by the San Mateo, Santa Cruz, and Santa Clara Counties.*
 
-Usage
+**Usage**
 
 To set up:
 
